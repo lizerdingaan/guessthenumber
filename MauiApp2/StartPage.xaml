@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.StartPage"
+             Title="Play Game"
+             BackgroundImageSource="background.jpg">
+
+    <VerticalStackLayout>
+
+        <Label
+            x:Name="messageLabel"
+            IsVisible="True"/>
+
+        <Entry
+            x:Name="userGuess"
+            IsVisible="True"
+            Placeholder="Enter a number"/>
+
+        <Label
+            x:Name="responseMessage"
+            IsVisible="True"/>
+
+        <Button x:Name="btnSubmit" 
+                Text="Submit"
+                IsVisible="True"
+                Clicked="Submit_Clicked"/>
+
+        <Button x:Name="btnMenu" 
+                Text="Menu"
+                IsVisible="False"
+                Clicked="Menu_Clicked"/>
+
+        <Button x:Name="btnPlayAgain" 
+                Text="Play Again"
+                IsVisible="False"
+                Clicked="PlayAgain_Clicked"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

@@ -1,0 +1,24 @@
+    
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.RegistrationPage"
+             Title="Guess The Number">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to the world's #1 guessing game!!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <HorizontalStackLayout>
+            <Entry
+                Text=""
+                Placeholder="Input guess"
+                HorizontalOptions="Center"
+                PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Enter your guess"
+                FontSize="14"/>
+
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

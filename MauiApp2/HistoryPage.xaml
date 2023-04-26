@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.HistoryPage"
+             BackgroundImageSource="background.jpg">
+    <VerticalStackLayout>
+
+        <Label
+            x:Name="messageLabel"
+            IsVisible="True"/>
+
+        <CollectionView x:Name="historyCollection"
+                        IsVisible="True"
+                        ItemsSource="{Binding ListOfGames}"
+                        Margin="20"
+                        SelectionMode="Single"
+                        VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding .}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="0"/>
+            </CollectionView.ItemsLayout>
+
+        </CollectionView>
+
+        <Label
+            x:Name="clearHistory"
+            IsVisible="True"/>
+
+        <Button x:Name="btnMenu" 
+                Text="Menu" 
+                Clicked="Menu_Clicked"/>
+
+        <Button x:Name="btnClear" 
+                Text="Clear History"
+                IsVisible="False"
+                Clicked="ClearHistory_Clicked"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

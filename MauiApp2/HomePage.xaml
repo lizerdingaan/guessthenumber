@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.HomePage"
+             BackgroundImageSource="background.jpg">
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to.."
+            VerticalOptions="Center"/>
+
+        <Image
+                Source="logo.png"
+                SemanticProperties.Description="The guessing wizard"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="20"
+                     Padding="20">
+
+            <Button x:Name="btnLogin" 
+                    Text="Login" 
+                    Clicked="Login_Clicked"></Button>
+
+            <Button x:Name="btnRegister" 
+                    Text="Register" 
+                    Clicked="Register_Clicked"></Button>
+
+            
+        </StackLayout>
+
+        <Label
+                x:Name="Helper"
+                Text="Need help?"
+                FontSize="16"
+                TextDecorations="Underline"
+                ToolTipProperties.Text="Click to see rules of the game."
+                >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGestureRecognizerTapped"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+
+    </VerticalStackLayout>
+</ContentPage>
