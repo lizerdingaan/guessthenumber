@@ -21,7 +21,7 @@ namespace GameCore.Services
 
         public void Users()
         {
-            Guid user_id = Guid.NewGuid();
+            int user_id = 0;
             game.Add(new GameInstanceDTO { UserId=user_id, RandomNumber=numberToGuess, RemainingGuesses=remainingGuesses });
         }
         public SingletonService_LEGACY()

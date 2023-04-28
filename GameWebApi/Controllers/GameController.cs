@@ -25,7 +25,7 @@ namespace GameWebApi.Controllers
         [HttpGet("api/start")]
         public IActionResult StartGame()
         {
-            Guid Id = _service.AddNew();
+            int Id = _service.AddNew();
 
             // Console.WriteLine(_service.NumberOfTriesLeft(Id));
 
@@ -41,7 +41,7 @@ namespace GameWebApi.Controllers
         }
 
         [HttpGet("{id}/{guess}")]
-        public IActionResult Guess([FromRoute] Guid id, [FromRoute] int guess)
+        public IActionResult Guess([FromRoute] int id, [FromRoute] int guess)
         {
             //Guid GameId = service_.AddNew();
             

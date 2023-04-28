@@ -6,7 +6,7 @@ namespace GameCore.DTO
     {
         public string Message { get; set; }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public int Tries { get; set; }
 

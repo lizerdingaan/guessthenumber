@@ -15,9 +15,9 @@ namespace GameCore.Services
 
         GameInstanceDTO gameInstance = new GameInstanceDTO();
 
-        public Guid AddNew()
+        public int AddNew()
         {
-            var newUser = new GameInstanceDTO { UserId = Guid.NewGuid(), RandomNumber = new Random().Next(1, 21), RemainingGuesses = 5 };
+            var newUser = new GameInstanceDTO { UserId = 0, RandomNumber = new Random().Next(1, 21), RemainingGuesses = 5 };
             _gameList.Add(newUser);
 
             return newUser.UserId;
@@ -62,5 +62,24 @@ namespace GameCore.Services
             return false;
         }
 
+        public int DecrementNumberOfTries(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int NumberOfTriesLeft(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Guess(int guess, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetGuess(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

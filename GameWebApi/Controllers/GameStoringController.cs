@@ -26,7 +26,7 @@ namespace GameWebApi.Controllers
         [HttpGet("start")]
         public IActionResult StartGame()
         {
-            Guid Id = _service.AddNew();
+            int Id = _service.AddNew();
 
             var message = new ResponseDTO
             {
@@ -162,7 +162,7 @@ namespace GameWebApi.Controllers
         }
         
         [HttpGet("{username}/{id}/{guess}")]
-        public IActionResult Guess([FromRoute] string username, [FromRoute] Guid id, [FromRoute] int guess)
+        public IActionResult Guess([FromRoute] string username, [FromRoute] int id, [FromRoute] int guess)
         {
 
             try
@@ -186,7 +186,7 @@ namespace GameWebApi.Controllers
                         UsernameId = username,
                         RandomNumber = _service.GetGuess(id),
                         NumberOfTries = _service.NumberOfTriesLeft(id),
-                        GameStatus = true                      
+                        GameStatus = "Won"                      
                     };
                     _context.GameInstances.Add(newGameInstance);
                     _context.SaveChanges();
@@ -236,7 +236,7 @@ namespace GameWebApi.Controllers
                         UsernameId = username,
                         RandomNumber = _service.GetGuess(id),
                         NumberOfTries = _service.NumberOfTriesLeft(id),
-                        GameStatus = true
+                        GameStatus = "Won"
                     };
                     _context.GameInstances.Add(newGameInstance);
                     _context.SaveChanges();
@@ -261,7 +261,7 @@ namespace GameWebApi.Controllers
                     UsernameId = username,
                     RandomNumber = _service.GetGuess(id),
                     NumberOfTries = _service.NumberOfTriesLeft(id),
-                    GameStatus = false
+                    GameStatus = "Loss"
                 };
                 _context.GameInstances.Add(newGameInstance);
                 _context.SaveChanges();

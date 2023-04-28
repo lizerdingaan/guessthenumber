@@ -14,7 +14,7 @@ namespace GameWebApiTest
         string getHistory = "y";
         string deleteHistory = "yes";
         string deleteUser = "delete";
-        Guid id;
+        int id;
         int guess;
 
         public WebApiTests()
@@ -26,7 +26,7 @@ namespace GameWebApiTest
         public void StartGame_WhenCalled_ReturnsOkResult()
         {
             //Act
-            Guid Id = _service.AddNew();
+            int Id = _service.AddNew();
             var okResult = _controller.StartGame();
 
             //Assert

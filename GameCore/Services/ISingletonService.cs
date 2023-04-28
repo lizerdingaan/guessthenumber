@@ -9,14 +9,14 @@ namespace GameCore.Services
     public interface ISingletonService
     {
 
-        Guid AddNew();
+        int AddNew();
 
-        int DecrementNumberOfTries(Guid id);
+        int DecrementNumberOfTries(int id);
 
-        int NumberOfTriesLeft(Guid id);
+        int NumberOfTriesLeft(int id);
 
-        bool Guess(int guess, Guid id);
+        bool Guess(int guess, int id);
 
-        int GetGuess(Guid id);
+        int GetGuess(int id);
     }
 }

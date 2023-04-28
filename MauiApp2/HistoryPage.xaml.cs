@@ -34,7 +34,7 @@ public partial class HistoryPage : ContentPage
             btnClear.IsVisible = true;
             List<string> ListOfGames = Games.Select(game => 
             $"Number of Tries: {game.NumberOfTries}, " +
-            $"Random Number: {game.RandomNumber}, Game Won: {game.GameStatus}").ToList();
+            $"Random Number: {game.RandomNumber}, Game Status: {game.GameStatus}").ToList();
             historyCollection.ItemsSource = ListOfGames;
 
             BindingContext = new ViewHistoryService(messageLabel.Text, ListOfGames);
