@@ -25,26 +25,26 @@ namespace GameCore.Services
         }
 
 
-        public int GetGuess(Guid id)
+        public int GetGuess(int id)
         {
             return _gameList.First(gameInstance => gameInstance.UserId.Equals(id)).RandomNumber;
         }
 
 
-        public int DecrementNumberOfTries(Guid id)
+        public int DecrementNumberOfTries(int id)
         {
-           
+
             return _gameList.First(gameInstance => gameInstance.UserId.Equals(id)).RemainingGuesses--;
         }
 
 
-        public int NumberOfTriesLeft(Guid id)
+        public int NumberOfTriesLeft(int id)
         {
             return _gameList.First(gameInstance => gameInstance.UserId.Equals(id)).RemainingGuesses;
         }
 
-       
-        public bool Guess(int guess, Guid id)
+
+        public bool Guess(int guess, int id)
         {
 
             if (_gameList.First(gameInstance => gameInstance.UserId.Equals(id)).RemainingGuesses <= 1)
@@ -62,24 +62,5 @@ namespace GameCore.Services
             return false;
         }
 
-        public int DecrementNumberOfTries(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int NumberOfTriesLeft(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Guess(int guess, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetGuess(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

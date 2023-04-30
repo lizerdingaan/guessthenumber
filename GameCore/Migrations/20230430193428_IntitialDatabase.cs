@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace GameCore.Migrations
 {
     /// <inheritdoc />
-    public partial class UsernameType : Migration
+    public partial class IntitialDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,11 +14,12 @@ namespace GameCore.Migrations
                 name: "GameInstances",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UsernameId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RandomNumber = table.Column<int>(type: "int", nullable: false),
                     NumberOfTries = table.Column<int>(type: "int", nullable: false),
-                    GameStatus = table.Column<bool>(type: "bit", nullable: false)
+                    GameStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,12 +32,17 @@ namespace GameCore.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: true, collation: "SQL_Latin1_General_CP1_CS_AS")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usernames", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usernames_Name",
+                table: "Usernames",
+                column: "Name");
         }
 
         /// <inheritdoc />
