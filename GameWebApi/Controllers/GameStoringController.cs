@@ -99,7 +99,7 @@ namespace GameWebApi.Controllers
         {
             if (history == "y")
             {
-                var gameHistory = _context.GameInstances.Where(x => x.UsernameId == username).ToList();
+                var gameHistory = _context.GameInstances.Where(x => EF.Functions.Collate(x.UsernameId, "SQL_Latin1_General_CP1_CS_AS") == username).ToList();
 
                 if (gameHistory.Count() == 0)
                 {
@@ -125,7 +125,7 @@ namespace GameWebApi.Controllers
         {
             if (deleteHistory == "yes")
             {
-                var gameHistory = _context.GameInstances.Where(x => x.UsernameId == username).ToList();
+                var gameHistory = _context.GameInstances.Where(x => EF.Functions.Collate(x.UsernameId, "SQL_Latin1_General_CP1_CS_AS") == username).ToList();
 
                 foreach (var history in gameHistory)
                 {
@@ -149,7 +149,7 @@ namespace GameWebApi.Controllers
             {
                 DeleteHistory("yes", username);
 
-                var existingUsernames = _context.Usernames.Where(u => u.Name == username).ToList();
+                var existingUsernames = _context.Usernames.Where(u => EF.Functions.Collate(u.Name, "SQL_Latin1_General_CP1_CS_AS") == username).ToList();
                 foreach (var existingUsername in existingUsernames)
                 {
                     _context.Remove(existingUsername);
