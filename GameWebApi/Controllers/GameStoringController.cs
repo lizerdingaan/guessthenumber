@@ -34,7 +34,7 @@ namespace GameWebApi.Controllers
             {
                 Message = $"Guess a number between 1 and 20. You have 5 tries",
                 Id = Id,
-                Tries = 5,
+                Tries = _service.NumberOfTriesLeft(Id),
                 PlayingGame = true,
                 WonGame = false
             };
@@ -261,7 +261,6 @@ namespace GameWebApi.Controllers
                 };
                 GameInstance newGameInstance = new GameInstance
                 {
-                    //Id = id,
                     UsernameId = username,
                     RandomNumber = _service.GetGuess(id),
                     NumberOfTries = _service.NumberOfTriesLeft(id),

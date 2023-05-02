@@ -5,12 +5,10 @@ namespace MauiApp2;
 public partial class LoginPage : ContentPage
 {
     readonly RegisterUser _registerUser = new();
-    readonly string _player;
 
-    public LoginPage(string username)
+    public LoginPage()
     {
-        InitializeComponent();
-        _player = username;
+        InitializeComponent();;
     }
 
     private async void Login_Clicked(object sender, EventArgs e)
