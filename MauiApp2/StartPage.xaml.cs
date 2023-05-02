@@ -7,6 +7,7 @@ public partial class StartPage : ContentPage
 {
     string _player;
     ResponseDTO result;
+    GameInstanceDTO gameInstance;
     RefreshHistory refreshHistory = new RefreshHistory();
 
 

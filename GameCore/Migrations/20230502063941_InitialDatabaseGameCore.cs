@@ -5,7 +5,7 @@
 namespace GameCore.Migrations
 {
     /// <inheritdoc />
-    public partial class IntitialDatabase : Migration
+    public partial class InitialDatabaseGameCore : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

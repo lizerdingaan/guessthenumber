@@ -1,4 +1,5 @@
-﻿using GameCore.DTO;
+﻿using GameCore.Data;
+using GameCore.DTO;
 
 namespace GameCore.Services
 {
@@ -7,17 +8,23 @@ namespace GameCore.Services
     {
 
         private readonly List<GameInstanceDTO> _gameList;
+        private GameContext context = new GameContext();
 
         public SingletonService()
         {
             _gameList = new List<GameInstanceDTO>();
+
+            
         }
 
         GameInstanceDTO gameInstance = new GameInstanceDTO();
 
+        
+
         public int AddNew()
         {
-            var newUser = new GameInstanceDTO { UserId = 0, RandomNumber = new Random().Next(1, 21), RemainingGuesses = 5 };
+            
+            var newUser = new GameInstanceDTO { UserId = context.GameInstances.Count() + 1, RandomNumber = new Random().Next(1, 21), RemainingGuesses = 5 };
             _gameList.Add(newUser);
 
             return newUser.UserId;

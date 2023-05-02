@@ -17,6 +17,7 @@ namespace GameCore.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Username>().Property(n => n.Name).UseCollation("SQL_Latin1_General_CP1_CS_AS");
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

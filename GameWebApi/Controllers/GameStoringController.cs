@@ -13,7 +13,8 @@ namespace GameWebApi.Controllers
     {
         private readonly GameContext _context;
         private readonly ISingletonService _service;
-        //private readonly IUserInput _userInputService;
+        GameInstanceDTO gameInstance = new GameInstanceDTO();
+
 
         public GameStoringController(ISingletonService service)
         {
@@ -26,18 +27,20 @@ namespace GameWebApi.Controllers
         [HttpGet("start")]
         public IActionResult StartGame()
         {
+
             int Id = _service.AddNew();
 
             var message = new ResponseDTO
             {
-                Message = $"Guess a number between 1 and 20. You have {_service.NumberOfTriesLeft(Id)} tries",
+                Message = $"Guess a number between 1 and 20. You have 5 tries",
                 Id = Id,
-                Tries = _service.NumberOfTriesLeft(Id),
+                Tries = 5,
                 PlayingGame = true,
                 WonGame = false
             };
 
             return Ok(message);
+
         }
         [HttpGet("userExists/{username}")]
         public IActionResult UserExists([FromRoute] string username)
@@ -64,7 +67,8 @@ namespace GameWebApi.Controllers
         [HttpGet("{username}")]
         public IActionResult ValidateUsername([FromRoute] string username)
         {
-            var existingUsername = _context.Usernames.Where(u => EF.Functions.Collate(u.Name, "SQL_Latin1_General_CP1_CS_AS") == username).FirstOrDefault();
+            var existingUsername = _context.Usernames.Where(u => EF.Functions.Collate(u.Name, 
+                "SQL_Latin1_General_CP1_CS_AS") == username).FirstOrDefault();
 
 
 
@@ -182,7 +186,6 @@ namespace GameWebApi.Controllers
 
                     GameInstance newGameInstance = new()
                     {
-                        Id = id,
                         UsernameId = username,
                         RandomNumber = _service.GetGuess(id),
                         NumberOfTries = _service.NumberOfTriesLeft(id),
@@ -190,6 +193,7 @@ namespace GameWebApi.Controllers
                     };
                     _context.GameInstances.Add(newGameInstance);
                     _context.SaveChanges();
+                    newGameInstance.Id = gameInstance.UserId;
 
                     return Ok(message);
                 }
@@ -232,7 +236,6 @@ namespace GameWebApi.Controllers
                     };
                     GameInstance newGameInstance = new GameInstance
                     {
-                        Id = id,
                         UsernameId = username,
                         RandomNumber = _service.GetGuess(id),
                         NumberOfTries = _service.NumberOfTriesLeft(id),
@@ -240,6 +243,7 @@ namespace GameWebApi.Controllers
                     };
                     _context.GameInstances.Add(newGameInstance);
                     _context.SaveChanges();
+                    newGameInstance.Id = gameInstance.UserId;
 
                     return Ok(message);
                 }
@@ -257,7 +261,7 @@ namespace GameWebApi.Controllers
                 };
                 GameInstance newGameInstance = new GameInstance
                 {
-                    Id = id,
+                    //Id = id,
                     UsernameId = username,
                     RandomNumber = _service.GetGuess(id),
                     NumberOfTries = _service.NumberOfTriesLeft(id),
