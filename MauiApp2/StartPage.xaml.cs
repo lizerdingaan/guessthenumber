@@ -30,6 +30,16 @@ public partial class StartPage : ContentPage
         
     }
 
+    private void VisibilityAndRefresh()
+    {
+        messageLabel.IsVisible = false;
+        userGuess.IsVisible = false;
+        btnSubmit.IsVisible = false;
+        btnMenu.IsVisible = true;
+        btnPlayAgain.IsVisible = true;
+        refreshHistory.Refresh();
+    }
+
     private async void Submit_Clicked(object sender, EventArgs e)
     {
         var number = userGuess.Text;
@@ -51,21 +61,11 @@ public partial class StartPage : ContentPage
 
                 if (!result.PlayingGame)
                 {
-                    messageLabel.IsVisible = false;
-                    userGuess.IsVisible = false;
-                    btnSubmit.IsVisible = false;
-                    btnMenu.IsVisible = true;
-                    btnPlayAgain.IsVisible = true;
-                    refreshHistory.Refresh();
+                    VisibilityAndRefresh();
                 }
                 if (result.WonGame)
                 {
-                    messageLabel.IsVisible = false;
-                    userGuess.IsVisible = false;
-                    btnSubmit.IsVisible = false;
-                    btnMenu.IsVisible = true;
-                    btnPlayAgain.IsVisible = true;
-                    refreshHistory.Refresh();
+                    VisibilityAndRefresh();
                 }
                 
             }

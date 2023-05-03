@@ -13,15 +13,12 @@ namespace GameWebApi.Controllers
     {
         private readonly GameContext _context;
         private readonly ISingletonService _service;
-        GameInstanceDTO gameInstance = new GameInstanceDTO();
-
 
         public GameStoringController(ISingletonService service)
         {
             _context = new GameContext();
             _service = service;
         }
-
 
 
         [HttpGet("start")]
@@ -32,7 +29,7 @@ namespace GameWebApi.Controllers
 
             var message = new ResponseDTO
             {
-                Message = $"Guess a number between 1 and 20. You have 5 tries",
+                Message = "Guess a number between 1 and 20. You have 5 tries",
                 Id = Id,
                 Tries = _service.NumberOfTriesLeft(Id),
                 PlayingGame = true,
@@ -40,8 +37,9 @@ namespace GameWebApi.Controllers
             };
 
             return Ok(message);
-
         }
+
+
         [HttpGet("userExists/{username}")]
         public IActionResult UserExists([FromRoute] string username)
         {
@@ -63,6 +61,7 @@ namespace GameWebApi.Controllers
                 });
             }
         }
+
 
         [HttpGet("{username}")]
         public IActionResult ValidateUsername([FromRoute] string username)
@@ -94,6 +93,7 @@ namespace GameWebApi.Controllers
             });
         }
 
+
         [HttpGet("{history}/{username}")]
         public IActionResult GetGameHistory([FromRoute] string history, [FromRoute] string username)
         {
@@ -120,6 +120,7 @@ namespace GameWebApi.Controllers
             return Ok();
         }
 
+
         [HttpDelete("deleteHistory/{deleteHistory}/{username}")]
         public IActionResult DeleteHistory([FromRoute] string deleteHistory, [FromRoute] string username)
         {
@@ -141,6 +142,7 @@ namespace GameWebApi.Controllers
             }
             return Ok();
         }
+
 
         [HttpDelete("delete/user/{deleteUser}/{username}")]
         public IActionResult DeleteUser([FromRoute] string deleteUser, [FromRoute] string username)
@@ -164,6 +166,7 @@ namespace GameWebApi.Controllers
             }
             return Ok();
         }
+       
         
         [HttpGet("{username}/{id}/{guess}")]
         public IActionResult Guess([FromRoute] string username, [FromRoute] int id, [FromRoute] int guess)
@@ -193,7 +196,6 @@ namespace GameWebApi.Controllers
                     };
                     _context.GameInstances.Add(newGameInstance);
                     _context.SaveChanges();
-                    newGameInstance.Id = gameInstance.UserId;
 
                     return Ok(message);
                 }
@@ -243,7 +245,6 @@ namespace GameWebApi.Controllers
                     };
                     _context.GameInstances.Add(newGameInstance);
                     _context.SaveChanges();
-                    newGameInstance.Id = gameInstance.UserId;
 
                     return Ok(message);
                 }
@@ -271,7 +272,6 @@ namespace GameWebApi.Controllers
 
                 return Ok(message);
             }
-
 
         }
     }
