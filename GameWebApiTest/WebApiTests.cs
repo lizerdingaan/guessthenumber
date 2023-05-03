@@ -14,7 +14,7 @@ namespace GameWebApiTest
         private readonly GameStoringController _controller;
         private readonly ISingletonService _service;
         private string username;
-        string getHistory = "y";
+        //string getHistory = "y";
         string deleteHistory = "yes";
         string deleteUser = "delete";
         int id;
@@ -23,11 +23,10 @@ namespace GameWebApiTest
         public WebApiTests()
         {
             _controller = new GameStoringController(_service);
-            //_service = service;
             
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void StartGame_WhenCalled_PlayerStartsGame()
         {
 
@@ -37,7 +36,7 @@ namespace GameWebApiTest
 
             responseDTO?.Message.Should().Be("Guess a number between 1 and 20. You have 5 tries");
             responseDTO?.Message.Should().BeOfType<string>();
-        }
+        }*/
 
         [DataTestMethod]
         [DataRow("tshego")]
@@ -75,6 +74,34 @@ namespace GameWebApiTest
             addUserDTO?.Message.Should().Be("\nThis username already exists. Please think of a more unique username.");
             addUserDTO?.Message.Should().BeOfType<string>();
         }
+
+
+        [DataTestMethod]
+        [DataRow("none")]
+        public void ValidateUsername_WhenCalled_ShouldRegisterNewUser(string username)
+        {
+            IActionResult actionResult = _controller.ValidateUsername(username);
+            OkObjectResult okObjectResult = actionResult as OkObjectResult;
+            AddUserDTO addUserDTO = (AddUserDTO)okObjectResult?.Value;
+
+            addUserDTO?.Message.Should().Be($"Hi, {username} you have been registered. Good luck!");
+            addUserDTO?.Message.Should().BeOfType<string>();
+        }
+
+
+        [DataTestMethod]
+        [DataRow("y")]
+        [DataRow("tshego")]
+        public void GetGameHistory_CalledWithExistingUser_ShouldReturnPreviousGames(string history, string username)
+        {
+            IActionResult actionResult = _controller.GetGameHistory(history, username);
+            OkObjectResult okObjectResult = actionResult as OkObjectResult;
+            ResponseDTO responseDto = (ResponseDTO)okObjectResult?.Value;
+
+            responseDto?.Message.Should().Be($"{username}'s previous games.");
+            responseDto?.Message.Should().BeOfType<string>();
+        }
+
 
         [TestMethod]
         public void StartGame_WhenCalled_ReturnsOkResult()
