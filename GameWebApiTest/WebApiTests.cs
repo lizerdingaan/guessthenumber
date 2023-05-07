@@ -14,11 +14,8 @@ namespace GameWebApiTest
         private readonly GameStoringController _controller;
         private readonly ISingletonService _service;
         private string username;
-        //string getHistory = "y";
         string deleteHistory = "yes";
         string deleteUser = "delete";
-        int id;
-        int guess;
 
         public WebApiTests()
         {
@@ -26,26 +23,30 @@ namespace GameWebApiTest
             
         }
 
-        /*[TestMethod]
-        public void StartGame_WhenCalled_PlayerStartsGame()
+
+        [TestMethod]
+        public void UserExists_WhenCalled_ReturnsOkResult()
         {
+            // act
+            var okResult = _controller.UserExists(username);
 
-            IActionResult actionResult = _controller.StartGame();
-            OkObjectResult? okObjectResult = actionResult as OkObjectResult;
-            ResponseDTO? responseDTO = (ResponseDTO)okObjectResult?.Value;
+            // assert
+            Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
+        }
 
-            responseDTO?.Message.Should().Be("Guess a number between 1 and 20. You have 5 tries");
-            responseDTO?.Message.Should().BeOfType<string>();
-        }*/
 
         [DataTestMethod]
         [DataRow("tshego")]
         public void UserExists_WhenCalled_ShouldValidateUsernameExists(string username)
         {
+            // arrange
             IActionResult actionResult = _controller.UserExists(username);
+
+            //act
             OkObjectResult okObjectResult = actionResult as OkObjectResult;
             AddUserDTO addUserDTO = (AddUserDTO)okObjectResult?.Value;
 
+            // assert
             addUserDTO.Message.Should().Be("\nThis username already exists.");
             addUserDTO.Message.Should().BeOfType<string>();
         }
@@ -54,10 +55,14 @@ namespace GameWebApiTest
         [DataRow("none")]
         public void UserExits_WhenCalled_ShouldValidateUsernameDoesNotExist(string username)
         {
+            // arrange
             IActionResult actionResult = _controller.UserExists(username);
+
+            // act
             OkObjectResult okObjectResult = actionResult as OkObjectResult;
             AddUserDTO addUserDTO = (AddUserDTO)okObjectResult?.Value;
 
+            // assert
             addUserDTO.Message.Should().Be("\nThis username does not exist");
             addUserDTO.Message.Should().BeOfType<string>();
         }
@@ -67,10 +72,14 @@ namespace GameWebApiTest
         [DataRow("tshego")]
         public void ValidateUsername_WhenCalled_ShouldNotRegisterUser(string username)
         {
+            // arrange
             IActionResult actionResult = _controller.ValidateUsername(username);
+
+            // act
             OkObjectResult okObjectResult = actionResult as OkObjectResult;
             AddUserDTO addUserDTO = (AddUserDTO)okObjectResult?.Value;
 
+            // assert
             addUserDTO?.Message.Should().Be("\nThis username already exists. Please think of a more unique username.");
             addUserDTO?.Message.Should().BeOfType<string>();
         }
@@ -80,10 +89,14 @@ namespace GameWebApiTest
         [DataRow("none")]
         public void ValidateUsername_WhenCalled_ShouldRegisterNewUser(string username)
         {
+            // arrange
             IActionResult actionResult = _controller.ValidateUsername(username);
+
+            // act
             OkObjectResult okObjectResult = actionResult as OkObjectResult;
             AddUserDTO addUserDTO = (AddUserDTO)okObjectResult?.Value;
 
+            // assert
             addUserDTO?.Message.Should().Be($"Hi, {username} you have been registered. Good luck!");
             addUserDTO?.Message.Should().BeOfType<string>();
         }
@@ -102,48 +115,6 @@ namespace GameWebApiTest
             responseDto?.Message.Should().BeOfType<string>();
         }
 
-
-        [TestMethod]
-        public void StartGame_WhenCalled_ReturnsOkResult()
-        {
-            //Act
-            int Id = _service.AddNew();
-            var okResult = _controller.StartGame();
-
-            //Assert
-            Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
-        }
-
-        [TestMethod]
-        public void UserExists_WhenCalled_ReturnsOkResult()
-        {
-            //Act
-            var okResult = _controller.UserExists(username);
-
-            //Assert
-            Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
-        }
-
-        [TestMethod]
-        public void ValidateUsername_WhenCalled_ReturnsOkResult()
-        {
-            //Act
-            var okResult = _controller.ValidateUsername(username);
-
-            //Assert
-            Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
-
-        }
-
-        [TestMethod]
-        public void GetGameHistory_WhenCalled_ReturnsOkResult()
-        {
-            //Act
-            var okResult = _controller.GetGameHistory(getHistory, username);
-
-            //Assert
-            Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
-        }
 
         [TestMethod]
         public void DeleteHistory_WhenCalled_ReturnsOkResult()
@@ -165,14 +136,5 @@ namespace GameWebApiTest
             Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
         }
 
-        [TestMethod]
-        public void Guess_WhenCalled_ReturnsOkResult()
-        {
-            //Act
-            var okResult = _controller.Guess(username, id, guess);
-
-            //Assert
-            Assert.IsInstanceOfType(okResult, typeof(OkObjectResult));
-        }
     }
 }

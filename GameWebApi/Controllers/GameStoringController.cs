@@ -1,8 +1,8 @@
-﻿using GameCore.Models;
-using GameCore.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using GameCore.Data;
 using GameCore.DTO;
+using GameCore.Models;
 using GameCore.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameWebApi.Controllers
@@ -44,6 +44,7 @@ namespace GameWebApi.Controllers
         public IActionResult UserExists([FromRoute] string username)
         {
             var existingUsername = _context.Usernames.Where(u => EF.Functions.Collate(u.Name, "SQL_Latin1_General_CP1_CS_AS") == username).FirstOrDefault();
+
             if (existingUsername is Username)
             {
                 return Ok(new AddUserDTO
@@ -68,8 +69,6 @@ namespace GameWebApi.Controllers
         {
             var existingUsername = _context.Usernames.Where(u => EF.Functions.Collate(u.Name, 
                 "SQL_Latin1_General_CP1_CS_AS") == username).FirstOrDefault();
-
-
 
             if (existingUsername is Username)
             {
@@ -112,7 +111,7 @@ namespace GameWebApi.Controllers
 
                 var message = new ResponseDTO
                 {
-                    games = gameHistory, Message = $"{username}'s previous games."
+                    games = gameHistory, Message = $"{username}'s previous games:"
                 };
                 return Ok(message);
             }

@@ -2,8 +2,6 @@
 using GameCore.DTO;
 using GameCore.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System;
 
 
 namespace GameWebApi.Controllers
@@ -27,8 +25,6 @@ namespace GameWebApi.Controllers
         {
             int Id = _service.AddNew();
 
-            // Console.WriteLine(_service.NumberOfTriesLeft(Id));
-
             var message = new ResponseDTO
             {
                 Message = $"Guess a number between 1 and 20. You have {_service.NumberOfTriesLeft(Id)} tries",
@@ -43,7 +39,6 @@ namespace GameWebApi.Controllers
         [HttpGet("{id}/{guess}")]
         public IActionResult Guess([FromRoute] int id, [FromRoute] int guess)
         {
-            //Guid GameId = service_.AddNew();
             
             try
             {
@@ -88,7 +83,7 @@ namespace GameWebApi.Controllers
                 {
                     var message = new ResponseDTO
                     {
-                        Message = $"YAY! You guessed correctly.",
+                        Message = $"YAY! You've guessed correctly.",
                         Id = id,
                         Tries = _service.NumberOfTriesLeft(id),
                         PlayingGame = false
