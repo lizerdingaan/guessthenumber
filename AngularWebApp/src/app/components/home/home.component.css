@@ -1,0 +1,10 @@
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.img1 {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+}
