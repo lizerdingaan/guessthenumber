@@ -13,4 +13,12 @@ export class MenuComponent {
   onClickStartGame() {
     this.route.navigateByUrl('/start');
   }
+
+  onClickHistory() {
+    this.route.navigateByUrl('/history');
+  }
+
+  onClickExit() {
+    this.route.navigateByUrl('/home')
+  }
 }

@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
+import { HistoryComponent } from "./components/history/history.component";
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { MenuComponent } from "./components/menu/menu.component";
@@ -11,6 +12,8 @@ const APP_ROUTES: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'start', component: StartComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'exit', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
 
