@@ -14,7 +14,8 @@ const APP_ROUTES: Routes = [
   { path: 'start', component: StartComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'exit', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'backtomenu', component: MenuComponent }
 ]
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

@@ -10,4 +10,8 @@ export class HistoryComponent {
 
   constructor(private route: Router) { }
 
+  onClickBacktoMenu() {
+    this.route.navigateByUrl('/menu');
+  }
+
 }
