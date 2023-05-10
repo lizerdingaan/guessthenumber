@@ -111,7 +111,8 @@ namespace GameWebApi.Controllers
 
                 var message = new ResponseDTO
                 {
-                    games = gameHistory, Message = $"{username}'s previous games:"
+                    games = gameHistory, 
+                    Message = $"{username}'s previous games:"
                 };
                 return Ok(message);
             }
