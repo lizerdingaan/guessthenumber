@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Responses } from '../models/responses.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +14,8 @@ export class BackendApiService {
 
 
   // method to get the history games of the user
-  getHistory() {
-    this.http.get(this.baseUrl);
+  getHistory(): Observable<Responses[]> {
+    return this.http.get<Responses[]>(this.baseUrl);
   }
 
 }
