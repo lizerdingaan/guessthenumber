@@ -1,18 +1,22 @@
-<div>
+<div class="block">
   <h1 class="title">{{title}}</h1>
   <div class="img1">
     <img src="assets/images/logo.png" alt="guess the number">
   </div>
 
-  <app-button class="btn"
-              color="#800080"
-              text="Login"
-              (click)="onClickLogin()"
-              [routerLink]="['login']"></app-button>
+  <div class="container">
+    <app-button class="btn"
+                color="#800080"
+                text="Login"
+                (click)="onClickLogin()"
+                [routerLink]="['login']"></app-button>
 
-  <app-button class="btn" color="#800080"
-              text="Register"
-              (click)="onClickRegister()"
-              [routerLink]="['register']"></app-button>
+    <app-button class="btn" color="#800080"
+                text="Register"
+                (click)="onClickRegister()"
+                [routerLink]="['register']"></app-button>
+
+  </div>
 
 </div>
+  

@@ -6,22 +6,38 @@
   padding: 0;
 }
 
+.heading {
+  color: #4e1bb4;
+  display: flex;
+  justify-content: center
+}
+
+.mainbody {
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   font-family: "Poppins", ComicSansMS;
+  background-image: url(assets/images/sunsetgradient.jpg);
 }
 
 .title {
   color: #4e1bb4;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
+  vertical-align: central;
+  align-content: center;
+  text-align: center;
+  padding: 60px;
+
+}
+
+.block{
+  padding: 250px;
 }
 
 .btn {
@@ -36,6 +52,7 @@ body {
   font-size: 15px;
   font-family: inherit;
   justify-content: center;
+  padding: 15px 40px;
 }
 
   .btn:focus {
