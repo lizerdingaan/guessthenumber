@@ -1,10 +1,10 @@
-export interface Responses {
+export class Responses {
 
-  Message: string;
-  Id: number;
-  Tries: number;
-  PlayingGame: boolean;
-  WonGame: boolean;
-  games: [{}];
+  Message = '';
+  Id = 0;
+  Tries = 0;
+  PlayingGame = false;
+  WonGame = false;
+  games = [];
 
 }

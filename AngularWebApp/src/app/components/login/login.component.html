@@ -7,12 +7,16 @@
 
       <input class="input"
              type="text"
+             [(ngModel)]="username"
+             (keyup.submit)="username"
              placeholder="Type a name"
              required />
     </div>
 
     <input type="submit"
            value="Login"/>
+
+    <p>{{username}}</p>
   </form>
  
 </div>

@@ -10,11 +10,12 @@ import { BackendApiService } from '../../services/backend-api.service';
 })
 export class HistoryComponent implements OnInit {
 
-  responses: Responses[] = [];
+  responses = new Responses();
 
   constructor(private route: Router,
-    private backendApiService: BackendApiService) { }
+    private backendApiService: BackendApiService) {
 
+  }
 
   ngOnInit(): void {
     this.getUserHistory();
@@ -23,9 +24,9 @@ export class HistoryComponent implements OnInit {
 
   getUserHistory() {
     this.backendApiService.getHistory().subscribe(
-      response => {
-        this.responses = response;
-        console.log(response);
+      data => {
+        this.responses = data;
+        console.log(data);
       });
   }
 
