@@ -1,8 +1,32 @@
-<div class="container">
-  <h2>{{responses.games}}</h2>
+<div class="block">
+  <div class="container">
+    <h2>{{responses.message}}</h2>
+
+    <table class="table" border="1">
+      <tr>
+        <td>Random Number</td>
+        <td>Number of Tries</td>
+        <td>Game Status</td>
+      </tr>
+      <tr *ngFor="let item of responses.games">
+        <td>{{item.randomNumber}}</td>
+        <td>{{item.numberOfTries}}</td>
+        <td>{{item.gameStatus}}</td>
+
+      </tr>
+    </table>
+
+  </div>
+
+  <app-button class="btn"
+              text="Menu"
+              color="#800080"
+              (click)="onClickBacktoMenu()"
+              [routerLink]="['menu']"></app-button>
+
+  <app-button class="btn"
+              text="Delete History"
+              color="#800080"
+              (click)="onClickDeleteHistory()"></app-button>
+
 </div>
-<app-button class="btn"
-            text="Menu"
-            color="#800080"
-            (click)="onClickBacktoMenu()"
-            [routerLink]="['menu']"></app-button>

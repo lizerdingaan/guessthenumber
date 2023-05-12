@@ -35,4 +35,13 @@ export class HistoryComponent implements OnInit {
     this.route.navigateByUrl('/menu');
   }
 
+  onClickDeleteHistory() {
+    this.backendApiService.deleteUserHistory().subscribe(
+      data => {
+        this.responses = data;
+        console.log(data);
+      }
+    )
+  }
+
 }

@@ -1,8 +1,30 @@
+  <div class="container">
+  <h2 class="heading">Enter your username</h2>
+  <input name="username"
+         #username="ngModel"
+         class="input"
+         type="text"
+         placeholder="username"
+         required minlength="1" ngModel>
 
-<div class="block">
+  <div *ngIf="username.errors?.['minlength']">
+    Please enter a username.
+  </div>
+
+  <app-button class="btn"
+              text="Login"
+              type="button"
+              color="#800080"
+              (click)="onSubmit(username.value)"></app-button>
+</div>
+
+
+
+
+<!--<div class="block">
   <h2 class="heading">Enter your username</h2>
 
-  <form action="">
+  <form action="" (ngSubmit)="onSubmit()">
     <div class="container">
 
       <input class="input"
@@ -19,7 +41,7 @@
     <p>{{username}}</p>
   </form>
  
-</div>
+</div>-->
   
 
 

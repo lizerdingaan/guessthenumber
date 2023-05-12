@@ -1,4 +1,4 @@
-export interface AddUser {
-  Message: string;
-  UsernameExists: boolean;
+export class AddUser {
+  Message = '';
+  UsernameExists = false;
 }
