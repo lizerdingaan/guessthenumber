@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Responses } from '../../models/responses.model';
+import { BackendApiService } from '../../services/backend-api.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,17 +10,24 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent {
 
-  constructor(private route: Router) { }
+  responses = new Responses();
+
+  constructor(private route: Router,
+    private route_: ActivatedRoute,
+    private backendApiService: BackendApiService) { }
+
+  username = String(this.route_.snapshot.paramMap.get('username'));
 
   onClickStartGame() {
     this.route.navigateByUrl('/start');
   }
 
   onClickHistory() {
-    this.route.navigateByUrl('/history');
+    this.route.navigateByUrl(`/history/${this.username}`);
+
   }
 
   onClickExit() {
-    this.route.navigateByUrl('/home')
+    this.route.navigateByUrl('/home');
   }
 }

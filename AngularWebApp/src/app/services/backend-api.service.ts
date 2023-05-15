@@ -9,22 +9,27 @@ import { Responses } from '../models/responses.model';
 })
 export class BackendApiService {
 
-  baseUrl = 'http://localhost:5279/api/GameStoring/y/T';
+  baseUrl = 'http://localhost:5279/api/GameStoring/';
 
   constructor(private http: HttpClient) { }
 
   // method that is going to log the user in
-  getExistingUser(): Observable<AddUser> {
-    return this.http.get<AddUser>('http://localhost:5279/api/GameStoring/userExists/lebo');
+  getExistingUser(username: string): Observable<AddUser> {
+    return this.http.get<AddUser>(this.baseUrl + `userExists/${username}`);
+  }
+
+  registerNewUser(username: string): Observable<AddUser> {
+    return this.http.get<AddUser>(this.baseUrl + `${username}`)
   }
 
   // method to get the history games of the user
-  getHistory(): Observable<Responses> {
-    return this.http.get<Responses>(this.baseUrl);
+  getHistory(username: string): Observable<Responses> {
+    return this.http.get<Responses>(this.baseUrl + `y/${username}`);
   }
 
-  deleteUserHistory(): Observable<Responses> {
-    return this.http.get<Responses>('http://localhost:5279/api/GameStoring/deleteHistory/yes/T')
+  //method to delete history of user
+  deleteUserHistory(username: string): Observable<Responses> {
+    return this.http.delete <Responses>(this.baseUrl + `deleteHistory/yes/${username}`)
   }
   
 }

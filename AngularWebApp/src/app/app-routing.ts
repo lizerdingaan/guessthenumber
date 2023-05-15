@@ -11,6 +11,8 @@ const APP_ROUTES: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'menu', component: MenuComponent },
+  { path: 'menu/:username', component: MenuComponent },
+  { path: 'history/:username', component: HistoryComponent },
   { path: 'start', component: StartComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'exit', component: HomeComponent },

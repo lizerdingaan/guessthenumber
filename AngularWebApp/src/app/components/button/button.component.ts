@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SetDisabledStateOption } from '@angular/forms';
 
 @Component({
   selector: 'app-button',
@@ -8,5 +9,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ButtonComponent {
   @Input() text!: string;
   @Input() color!: string;
+
 
 }

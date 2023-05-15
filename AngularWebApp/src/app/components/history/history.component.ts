@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Responses } from '../../models/responses.model';
 import { BackendApiService } from '../../services/backend-api.service';
 
@@ -13,17 +13,20 @@ export class HistoryComponent implements OnInit {
   responses = new Responses();
 
   constructor(private route: Router,
-    private backendApiService: BackendApiService) {
+    private backendApiService: BackendApiService,
+    private route_: ActivatedRoute) {
 
   }
+
+  username = String(this.route_.snapshot.paramMap.get('username'));
 
   ngOnInit(): void {
-    this.getUserHistory();
+    this.getUserHistory(this.username);
   }
 
 
-  getUserHistory() {
-    this.backendApiService.getHistory().subscribe(
+  getUserHistory(username: string) {
+    this.backendApiService.getHistory(username).subscribe(
       data => {
         this.responses = data;
         console.log(data);
@@ -36,7 +39,7 @@ export class HistoryComponent implements OnInit {
   }
 
   onClickDeleteHistory() {
-    this.backendApiService.deleteUserHistory().subscribe(
+    this.backendApiService.deleteUserHistory(this.username).subscribe(
       data => {
         this.responses = data;
         console.log(data);

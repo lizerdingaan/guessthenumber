@@ -1,4 +1,4 @@
 export class AddUser {
-  Message = '';
-  UsernameExists = false;
+  message = '';
+  usernameExists = false;
 }

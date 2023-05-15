@@ -1,52 +1,21 @@
   <div class="container">
   <h2 class="heading">Enter your username</h2>
-  <input name="username"
-         #username="ngModel"
-         class="input"
-         type="text"
-         placeholder="username"
-         required minlength="1" ngModel>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
+    <input name="username"
+           required
+           #username="ngModel"
+           class="input"
+           type="text"
+           placeholder="type a name"
+           ngModel>
 
-  <div *ngIf="username.errors?.['minlength']">
-    Please enter a username.
-  </div>
+    <app-button *ngIf="username.valid"
+                class="btn"
+                text="Login"
+                type="button"
+                color="#800080"></app-button>
 
-  <app-button class="btn"
-              text="Login"
-              type="button"
-              color="#800080"
-              (click)="onSubmit(username.value)"></app-button>
-</div>
-
-
-
-
-<!--<div class="block">
-  <h2 class="heading">Enter your username</h2>
-
-  <form action="" (ngSubmit)="onSubmit()">
-    <div class="container">
-
-      <input class="input"
-             type="text"
-             [(ngModel)]="username"
-             (keyup.submit)="username"
-             placeholder="Type a name"
-             required />
-    </div>
-
-    <input type="submit"
-           value="Login"/>
-
-    <p>{{username}}</p>
   </form>
- 
-</div>-->
   
-
-
-
-
-
-
+</div>
 

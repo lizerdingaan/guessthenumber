@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AddUser } from '../../models/adduser.model';
 import { BackendApiService } from '../../services/backend-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +11,13 @@ import { BackendApiService } from '../../services/backend-api.service';
 })
 export class LoginComponent {
 
-  //username: string = '';
-
   response = new AddUser();
 
-  constructor(private backendApiService: BackendApiService) { }
+  constructor(private backendApiService: BackendApiService,
+    private route: Router) { }
 
-  getUserExistance() {
-    this.backendApiService.getExistingUser().subscribe(
+  getUserExistance(username: string) {
+    this.backendApiService.getExistingUser(username).subscribe(
       data => {
         this.response = data;
         console.log(data);
@@ -26,7 +26,9 @@ export class LoginComponent {
   }
 
   onSubmit(username: string): void {
-    console.log(username);  
+    this.getUserExistance(username);
+    console.log(username);
+    this.route.navigateByUrl(`/menu/${username}`)
   }
 
 }

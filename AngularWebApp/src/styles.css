@@ -55,6 +55,10 @@ body {
   padding: 15px 40px;
 }
 
+.error {
+    color: maroon;
+}
+
   .btn:focus {
     outline: none;
   }
