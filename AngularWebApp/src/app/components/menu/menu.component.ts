@@ -27,6 +27,10 @@ export class MenuComponent {
 
   }
 
+  onClickDeleteUser() {
+    this.route.navigateByUrl('/home');
+  }
+
   onClickExit() {
     this.route.navigateByUrl('/home');
   }

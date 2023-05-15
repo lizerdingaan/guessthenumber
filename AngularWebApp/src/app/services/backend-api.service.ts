@@ -18,6 +18,7 @@ export class BackendApiService {
     return this.http.get<AddUser>(this.baseUrl + `userExists/${username}`);
   }
 
+  // method to register a new user
   registerNewUser(username: string): Observable<AddUser> {
     return this.http.get<AddUser>(this.baseUrl + `${username}`)
   }
@@ -29,7 +30,12 @@ export class BackendApiService {
 
   //method to delete history of user
   deleteUserHistory(username: string): Observable<Responses> {
-    return this.http.delete <Responses>(this.baseUrl + `deleteHistory/yes/${username}`)
+    return this.http.delete<Responses>(this.baseUrl + `deleteHistory/yes/${username}`)
+  }
+
+  // method to delete the user completely along with game history
+  deleteUser(username: string): Observable<Responses> {
+    return this.http.delete<Responses>(this.baseUrl + `delete/user/${'delete'}/${username}`)
   }
   
 }
