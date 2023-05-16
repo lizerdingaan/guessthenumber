@@ -20,15 +20,18 @@ export class LoginComponent {
     this.backendApiService.getExistingUser(username).subscribe(
       data => {
         this.response = data;
+        if (data.usernameExists) {
+          this.route.navigateByUrl(`/menu/${username}`);
+        } 
         console.log(data);
       }
     )
   }
 
+
   onSubmit(username: string): void {
-    this.getUserExistance(username);
-    console.log(username);
-    this.route.navigateByUrl(`/menu/${username}`)
+    this.getUserExistance(username);    
+
   }
 
 }
