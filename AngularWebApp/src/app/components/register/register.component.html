@@ -1,22 +1,26 @@
-<div class="container">
+<div class="block">
   <h2 class="heading">Enter new username</h2>
 
   <form #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
 
-      <input name="username"
-             required
-             #username="ngModel"
-             class="input"
-             type="text"
-             placeholder="type a name"
-             ngModel/>
+    <input name="username"
+           required
+           #username="ngModel"
+           class="input"
+           type="text"
+           placeholder="type a name"
+           ngModel />
 
+    <h4 class="subheading" *ngIf="existingUser" color="#800000">This username already exists, please enter more uniqe name.</h4>
 
-      <app-button *ngIf="username.valid"
-                  class="btn"
-                  text="Register"
-                  type="button"
-                  color="#800080"></app-button>
+    <app-button *ngIf="username.valid"
+                class="btn"
+                text="Register"
+                type="button"
+                color="#800080"></app-button>
+
+    <a *ngIf="username.valid" class="heading" href="login" color="#800080">Login</a>
+
   </form>
   
 </div>

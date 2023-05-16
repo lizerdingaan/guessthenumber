@@ -10,6 +10,13 @@
   color: #4e1bb4;
   display: flex;
   justify-content: center;
+  margin: 50px;
+}
+
+.subheading {
+  color: #800000;
+  display: flex;
+  justify-content: center;
 }
 
 .mainbody {

@@ -11,6 +11,7 @@
 input[type=text] {
   border: 2px;
   border-radius: 5px;
+  margin: 0px 610px;
 }
 
 .button {
@@ -39,10 +40,4 @@ input[type=submit] {
   font-size: 15px;
   font-family: inherit;
   cursor: pointer;
-}
-
-.subheading {
-  color: #800000;
-  display: flex;
-  justify-content: center;
 }

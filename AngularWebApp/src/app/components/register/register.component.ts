@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
   response = new AddUser()
+  existingUser: boolean = false;
 
   constructor(private backendApiService: BackendApiService,
     private route: Router) { }
@@ -19,6 +20,10 @@ export class RegisterComponent {
     this.backendApiService.registerNewUser(username).subscribe(
       data => {
         this.response = data;
+        this.existingUser = this.response.usernameExists;
+        if (!data.usernameExists) {
+          this.route.navigateByUrl(`/menu/${username}`);
+        }
         console.log(data);
       }
     )
@@ -26,6 +31,5 @@ export class RegisterComponent {
 
   onSubmit(username: string) {
     this.getRegisteredUser(username);
-    this.route.navigateByUrl(`/menu/${username}`);
   }
 }

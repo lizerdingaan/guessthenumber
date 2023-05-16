@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   response = new AddUser();
-  exist: boolean = true;
+  existingUser: boolean = true;
 
   constructor(private backendApiService: BackendApiService,
     private route: Router) { }
@@ -21,7 +21,7 @@ export class LoginComponent {
     this.backendApiService.getExistingUser(username).subscribe(
       data => {
         this.response = data;
-        this.exist = this.response.usernameExists;
+        this.existingUser = this.response.usernameExists;
         if (data.usernameExists) {
           this.route.navigateByUrl(`/menu/${username}`);
         } 
