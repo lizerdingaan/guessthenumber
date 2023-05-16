@@ -9,11 +9,15 @@
            placeholder="type a name"
            ngModel>
 
+    <h4 class="subheading" *ngIf="!exist" color="#800000">This username does not exist, please register.</h4>
+
     <app-button *ngIf="username.valid"
                 class="btn"
                 text="Login"
                 type="button"
                 color="#800080"></app-button>
+
+    <a *ngIf="username.valid" class="heading" href="register" color="#800080">Register</a>
 
   </form>
   

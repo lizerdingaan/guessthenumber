@@ -40,3 +40,9 @@ input[type=submit] {
   font-family: inherit;
   cursor: pointer;
 }
+
+.subheading {
+  color: #800000;
+  display: flex;
+  justify-content: center;
+}
