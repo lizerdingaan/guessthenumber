@@ -20,7 +20,7 @@ export class BackendApiService {
 
   // method to register a new user
   registerNewUser(username: string): Observable<AddUser> {
-    return this.http.get<AddUser>(this.baseUrl + `${username}`)
+    return this.http.get<AddUser>(this.baseUrl + `${username}`);
   }
 
   // method to get the history games of the user
@@ -29,13 +29,23 @@ export class BackendApiService {
   }
 
   //method to delete history of user
-  deleteUserHistory(username: string): Observable<Responses> {
-    return this.http.delete<Responses>(this.baseUrl + `deleteHistory/yes/${username}`)
+  deleteUserHistory(username: string): Observable<Responses> {;
+    return this.http.delete<Responses>(this.baseUrl + `deleteHistory/yes/${username}`);
   }
 
   // method to delete the user completely along with game history
   deleteUser(username: string): Observable<Responses> {
-    return this.http.delete<Responses>(this.baseUrl + `delete/user/${'delete'}/${username}`)
+    return this.http.delete<Responses>(this.baseUrl + `delete/user/${'delete'}/${username}`);
+  }
+
+  // method to start game
+  StartGame(): Observable<Responses> {
+    return this.http.get<Responses>(this.baseUrl + `start`);
+  }
+
+  // method for playing game
+  PlayGuessingGame(username: string, id: number, guess: number): Observable<Responses> {
+    return this.http.get<Responses>(this.baseUrl + `${username}/${id}/${guess}`)
   }
   
 }

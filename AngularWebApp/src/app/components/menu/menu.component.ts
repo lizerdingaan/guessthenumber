@@ -10,7 +10,7 @@ import { BackendApiService } from '../../services/backend-api.service';
 })
 export class MenuComponent {
 
-  responses = new Responses();
+  response = new Responses();
 
   constructor(private route: Router,
     private route_: ActivatedRoute,
@@ -19,7 +19,7 @@ export class MenuComponent {
   username = String(this.route_.snapshot.paramMap.get('username'));
 
   onClickStartGame() {
-    this.route.navigateByUrl('/start');
+    this.route.navigateByUrl('start');
   }
 
   onClickHistory() {
@@ -28,6 +28,11 @@ export class MenuComponent {
   }
 
   onClickDeleteUser() {
+    this.backendApiService.deleteUser(this.username).subscribe(
+      data => {
+        this.response = data;
+      }
+    )
     this.route.navigateByUrl('/home');
   }
 

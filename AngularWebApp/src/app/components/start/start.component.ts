@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Responses } from '../../models/responses.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BackendApiService } from '../../services/backend-api.service';
+
 
 @Component({
   selector: 'app-start',
@@ -7,4 +11,27 @@ import { Component } from '@angular/core';
 })
 export class StartComponent {
 
+  response = new Responses();
+  username = String(this.route_.snapshot.paramMap.get('username'));
+
+  constructor(private backendApiService: BackendApiService,
+    private route_: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.backendApiService.StartGame().subscribe(
+      data => {
+        this.response = data;
+        console.log(data);
+      }
+    )
+  }
+
+  onClickSubmitInput(username: string, id: number, guess: number) {
+    this.backendApiService.PlayGuessingGame(username, id, guess).subscribe(
+      data => {
+        this.response = data;
+        console.log(data);
+      }
+    )
+  }
 }

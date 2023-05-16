@@ -29,7 +29,7 @@ namespace GameWebApi.Controllers
 
             var message = new ResponseDTO
             {
-                Message = "Guess a number between 1 and 20. You have 5 tries",
+                Message = "Guess a number between 1 and 20. You've got 5 tries.",
                 Id = Id,
                 Tries = _service.NumberOfTriesLeft(Id),
                 PlayingGame = true,
