@@ -15,7 +15,7 @@ export class StartComponent {
   username = String(this.route_.snapshot.paramMap.get('username'));
 
   constructor(private backendApiService: BackendApiService,
-    private route_: ActivatedRoute) { }
+    private route_: ActivatedRoute, private route: Router) { }
 
   ngOnInit() {
     this.backendApiService.StartGame().subscribe(
@@ -33,5 +33,13 @@ export class StartComponent {
         console.log(data);
       }
     )
+  }
+
+  onClickMenu() {
+    this.route.navigateByUrl(`/menu/${this.username}`);
+  }
+
+  onClickPlayAgain() {
+    this.route.navigateByUrl(`/start/${this.username}`);
   }
 }

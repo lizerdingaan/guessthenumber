@@ -19,7 +19,8 @@ export class MenuComponent {
   username = String(this.route_.snapshot.paramMap.get('username'));
 
   onClickStartGame() {
-    this.route.navigateByUrl('start');
+    this.route.navigateByUrl(`start/${this.username}`);
+
   }
 
   onClickHistory() {

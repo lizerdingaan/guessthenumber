@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { StartComponent } from './components/start/start.component';
 import { HistoryComponent } from './components/history/history.component';
+import { NavigationbarComponent } from './components/navigationbar/navigationbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -24,14 +26,16 @@ import { HistoryComponent } from './components/history/history.component';
     HomeComponent,
     MenuComponent,
     StartComponent,
-    HistoryComponent
+    HistoryComponent,
+    NavigationbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     routing,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

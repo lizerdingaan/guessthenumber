@@ -35,7 +35,7 @@ export class HistoryComponent implements OnInit {
 
 
   onClickBacktoMenu() {
-    this.route.navigateByUrl('/menu');
+    this.route.navigateByUrl(`/menu/${this.username}`);
   }
 
   onClickDeleteHistory() {

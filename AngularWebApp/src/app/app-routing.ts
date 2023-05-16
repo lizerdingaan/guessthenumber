@@ -13,7 +13,7 @@ const APP_ROUTES: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'menu/:username', component: MenuComponent },
   { path: 'history/:username', component: HistoryComponent },
-  { path: 'start', component: StartComponent },
+  { path: 'start/:username', component: StartComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'exit', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

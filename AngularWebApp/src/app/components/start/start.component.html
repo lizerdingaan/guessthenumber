@@ -3,19 +3,34 @@
 
   <form #userForm="ngForm" (ngSubmit)="onClickSubmitInput(username, response.id, guess.value)">
 
-      <input name="guess"
-             #guess="ngModel"
-             class="input"
-             type="text"
-             placeholder="Enter a number"
-             required
-             ngModel/>
+    <input name="guess"
+           #guess="ngModel"
+           class="input"
+           type="text"
+           placeholder="Enter a number"
+           required
+           ngModel />
 
-
-    <app-button class="btn"
+    <app-button *ngIf="response.playingGame"
+                class="btn"
                 text="Submit"
                 type="button"
                 color="#800080"></app-button>
+
+    <app-button *ngIf="!response.playingGame"
+                class="btn"
+                text="Menu"
+                type="button"
+                color="#800080"
+                (click)="onClickMenu()"></app-button>
+
+    <app-button *ngIf="!response.playingGame"
+                class="btn"
+                text="Play Again"
+                type="button"
+                color="#800080"
+                (click)="onClickPlayAgain()"></app-button>
+
   </form>
 
 </div>
