@@ -13,6 +13,8 @@ namespace GameCore.DTO
         public bool PlayingGame { get; set; }
         public bool WonGame { get; set; }
 
+        public bool HistoryCleared { get; set; }
+
         public List<GameInstance> games { get; set; }
     }
 }

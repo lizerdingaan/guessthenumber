@@ -1,6 +1,8 @@
 
-.img1 {
-  display: flex;
-  justify-content: center;
-  height: 300px;
+.item-3 {
+  text-align: center;
+}
+
+.container {
+  padding: 250px;
 }

@@ -5,6 +5,7 @@ export class Responses {
   tries = 0;
   playingGame = false;
   wonGame = false;
+  historyCleared = false;
   games = [
     {
       id: 0,

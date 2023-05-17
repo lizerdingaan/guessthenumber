@@ -12,10 +12,11 @@ import { FormGroup, NgForm } from '@angular/forms';
 })
 export class StartComponent {
 
-  response = new Responses();
+  beginResponse = new Responses();
   response_ = new Responses();
   username = String(this.route_.snapshot.paramMap.get('username'));
   message: string = "";
+  isPlaying: boolean = true;
 
   constructor(private backendApiService: BackendApiService,
     private route_: ActivatedRoute, private route: Router) { }
@@ -23,7 +24,7 @@ export class StartComponent {
   ngOnInit() {
     this.backendApiService.StartGame().subscribe(
       data => {
-        this.response = data;
+        this.beginResponse = data;
         console.log(data);
       }
     )

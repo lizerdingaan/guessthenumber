@@ -2,8 +2,8 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .heading {
@@ -36,11 +36,14 @@ body {
 }
 
 .container {
-  vertical-align: central;
-  align-content: center;
-  text-align: center;
-  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+}
 
+img {
+    max-width: 100%;
 }
 
 .block{

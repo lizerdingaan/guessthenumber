@@ -136,7 +136,8 @@ namespace GameWebApi.Controllers
 
                 var message = new ResponseDTO
                 {
-                    Message = "History cleared."
+                    Message = "History cleared.",
+                    HistoryCleared = true
                 };
                 return Ok(message);
             }

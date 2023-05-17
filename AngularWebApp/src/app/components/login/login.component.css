@@ -5,21 +5,13 @@
   text-align: center;
 }
 
-.center{
-    
-}
-
-.full-width {
-  width: 100%;
-}
-
 input[type=text] {
-  display:block;
+  max-width: 100%;
+  display: block;
   border: 2px;
   border-radius: 5px;
   text-align: center;
   margin: auto;
-
 }
 
 .button {
@@ -48,4 +40,8 @@ input[type=submit] {
   font-size: 15px;
   font-family: inherit;
   cursor: pointer;
+}
+
+.container {
+  padding: 250px;
 }

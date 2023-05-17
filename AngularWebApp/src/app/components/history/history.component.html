@@ -1,8 +1,8 @@
 <div class="block">
   <div class="container">
-    <h2>{{responses.message}}</h2>
+    <h2 class="heading">{{responses.message}}</h2>
 
-    <table class="table" border="1">
+    <table *ngIf="!responses.historyCleared && responses.games != null" class="table" border="1">
       <tr>
         <td>Random Number</td>
         <td>Number of Tries</td>
@@ -24,7 +24,7 @@
               (click)="onClickBacktoMenu()"
               [routerLink]="['menu']"></app-button>
 
-  <app-button class="btn"
+  <app-button *ngIf="!responses.historyCleared && responses.games != null" class="btn"
               text="Delete History"
               color="#800080"
               (click)="onClickDeleteHistory()"></app-button>

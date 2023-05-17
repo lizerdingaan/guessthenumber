@@ -1,7 +1,7 @@
 <div class="block">
   <h2 class="heading">Guess a number between 1 and 20. You've got 5 tries.</h2>
 
-  <form #userForm="ngForm" (ngSubmit)="onClickSubmitInput(username, response.id, guess.value); guessNum.value=''">
+  <form #userForm="ngForm" (ngSubmit)="onClickSubmitInput(username, beginResponse.id, guess.value); guessNum.value=''">
 
     <input name="guess"
            #guess="ngModel"
@@ -16,7 +16,7 @@
 
     <h2 class="heading">{{message}}</h2>
 
-    <app-button 
+    <app-button
                 class="btn"
                 text="Submit"
                 type="button"
@@ -28,7 +28,7 @@
                 color="#800080"
                 (click)="onClickQuit()"></app-button>
 
-    <app-button *ngIf="!response.playingGame"
+    <app-button *ngIf="!beginResponse.playingGame"
                 class="btn"
                 text="Play Again"
                 type="button"
