@@ -1,4 +1,4 @@
-  <div class="block">
+  <div class="block center">
   <h2 class="heading">Enter your username</h2>
   <form #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
     <input name="username"
@@ -7,7 +7,7 @@
            class="input"
            type="text"
            placeholder="type a name"
-           ngModel>
+           ngModel/>
 
     <h4 class="subheading" *ngIf="!existingUser" color="#800000">This username does not exist, please register.</h4>
 

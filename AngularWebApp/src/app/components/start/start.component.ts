@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Responses } from '../../models/responses.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendApiService } from '../../services/backend-api.service';
+import { FormGroup, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -12,7 +13,9 @@ import { BackendApiService } from '../../services/backend-api.service';
 export class StartComponent {
 
   response = new Responses();
+  response_ = new Responses();
   username = String(this.route_.snapshot.paramMap.get('username'));
+  message: string = "";
 
   constructor(private backendApiService: BackendApiService,
     private route_: ActivatedRoute, private route: Router) { }
@@ -27,15 +30,23 @@ export class StartComponent {
   }
 
   onClickSubmitInput(username: string, id: number, guess: number) {
-    this.backendApiService.PlayGuessingGame(username, id, guess).subscribe(
-      data => {
-        this.response = data;
-        console.log(data);
-      }
-    )
+
+    if (guess < 1 || guess > 20) {
+      this.message = "Only enter numbers between 1 and 20."
+    }
+    else {
+
+      this.backendApiService.PlayGuessingGame(username, id, guess).subscribe(
+        data => {
+          this.response_ = data;
+          this.message = this.response_.message;
+          console.log(data);
+        }
+      )
+    }
   }
 
-  onClickMenu() {
+  onClickQuit() {
     this.route.navigateByUrl(`/menu/${this.username}`);
   }
 

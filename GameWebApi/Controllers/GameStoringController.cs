@@ -176,6 +176,7 @@ namespace GameWebApi.Controllers
             {
                 var result = _service.Guess(guess, id);
 
+
                 if (result)
                 {
                     var message = new ResponseDTO
@@ -230,7 +231,7 @@ namespace GameWebApi.Controllers
                 {
                     var message = new ResponseDTO
                     {
-                        Message = $"YAY! You guessed correctly. Congradulations, the number was {_service.GetGuess(id)}",
+                        Message = $"YAY! You guessed correctly. Congradulations, the number was {_service.GetGuess(id)}.",
                         Id = id,
                         Tries = _service.NumberOfTriesLeft(id),
                         PlayingGame = false,

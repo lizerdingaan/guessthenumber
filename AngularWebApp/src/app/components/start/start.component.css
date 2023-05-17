@@ -1,13 +1,16 @@
 .input {
   min-width: 150px;
   max-width: 0px;
-  min-height: 40px
+  min-height: 40px;
+  text-align: center;
 }
 
-input[type=text] {
+input[type=number] {
+  display: block;
   border: 2px;
   border-radius: 5px;
-  margin: 0px 610px;
+  text-align: center;
+  margin: auto;
 }
 
 input[type=submit] {
@@ -23,3 +26,8 @@ input[type=submit] {
   font-family: inherit;
   cursor: pointer;
 }
+
+/*.error-message_low_high {
+    display: none;
+    color: maroon;
+}*/
