@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routing } from './app-routing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { StartComponent } from './components/start/start.component';
 import { HistoryComponent } from './components/history/history.component';
 import { NavigationbarComponent } from './components/navigationbar/navigationbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailDialogComponent } from './components/detail-dialog/detail-dialog.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MenuComponent,
     StartComponent,
     HistoryComponent,
-    NavigationbarComponent
+    NavigationbarComponent,
+    DetailDialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     routing,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

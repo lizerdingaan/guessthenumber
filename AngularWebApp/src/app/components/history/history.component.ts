@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DetailDialogComponent } from '../../components/detail-dialog/detail-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Responses } from '../../models/responses.model';
 import { BackendApiService } from '../../services/backend-api.service';
@@ -14,7 +16,8 @@ export class HistoryComponent implements OnInit {
 
   constructor(private route: Router,
     private backendApiService: BackendApiService,
-    private route_: ActivatedRoute) {
+    private route_: ActivatedRoute,
+    public dialog: MatDialog) {
 
   }
 
@@ -39,12 +42,21 @@ export class HistoryComponent implements OnInit {
   }
 
   onClickDeleteHistory() {
-    this.backendApiService.deleteUserHistory(this.username).subscribe(
-      data => {
-        this.responses = data;
-        console.log(data);
+    const mdConfig = new MatDialogConfig();
+    mdConfig.disableClose = true;
+    mdConfig.width = '300px';
+
+    const dialogRef = this.dialog.open(DetailDialogComponent, mdConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.backendApiService.deleteUserHistory(this.username).subscribe(
+          data => {
+            this.responses = data;
+          }
+        )
       }
-    )
+    })
   }
 
 }
