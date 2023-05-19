@@ -18,6 +18,7 @@ export class StartComponent {
   message: string = "";
   isPlaying: boolean = true;
 
+
   constructor(private backendApiService: BackendApiService,
     private route_: ActivatedRoute, private route: Router) { }
 

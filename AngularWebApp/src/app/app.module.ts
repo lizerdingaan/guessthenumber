@@ -18,6 +18,7 @@ import { NavigationbarComponent } from './components/navigationbar/navigationbar
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailDialogComponent } from './components/detail-dialog/detail-dialog.component';
+import { NeedHelpDialogComponent } from './components/need-help-dialog/need-help-dialog.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DetailDialogComponent } from './components/detail-dialog/detail-dialog.
     StartComponent,
     HistoryComponent,
     NavigationbarComponent,
-    DetailDialogComponent
+    DetailDialogComponent,
+    NeedHelpDialogComponent
 
   ],
   imports: [

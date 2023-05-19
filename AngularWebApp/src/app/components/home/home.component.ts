@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DetailDialogComponent } from '../../components/detail-dialog/detail-dialog.component';
 import { Router } from '@angular/router';
+import { NeedHelpDialogComponent } from '../need-help-dialog/need-help-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ export class HomeComponent {
       " 4. You have 5 tries to guess a number between 1 and 20."
     }
 
-    const dialogRef = this.dialog.open(DetailDialogComponent, mdConfig);
+    const dialogRef = this.dialog.open(NeedHelpDialogComponent, mdConfig);
 
 
   }
