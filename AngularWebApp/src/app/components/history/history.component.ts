@@ -45,6 +45,10 @@ export class HistoryComponent implements OnInit {
     const mdConfig = new MatDialogConfig();
     mdConfig.disableClose = true;
     mdConfig.width = '300px';
+    mdConfig.data = {
+      title: 'Warning',
+      content: 'Are you sure you want to delete your history games?'
+    }
 
     const dialogRef = this.dialog.open(DetailDialogComponent, mdConfig);
 

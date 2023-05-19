@@ -35,6 +35,10 @@ export class MenuComponent {
     const mdConfig = new MatDialogConfig();
     mdConfig.disableClose = true;
     mdConfig.width = '400px';
+    mdConfig.data = {
+      title: 'Warning',
+      content: 'Are you sure you want to delete this user?'
+    }
     const dialogRef = this.dialog.open(DetailDialogComponent, mdConfig);
 
     dialogRef.afterClosed().subscribe(result => {
