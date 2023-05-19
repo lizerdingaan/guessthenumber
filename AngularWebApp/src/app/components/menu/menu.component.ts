@@ -36,7 +36,7 @@ export class MenuComponent {
     mdConfig.disableClose = true;
     mdConfig.width = '400px';
     mdConfig.data = {
-      title: 'Warning',
+      title: 'Warning!',
       content: 'Are you sure you want to delete this user?'
     }
     const dialogRef = this.dialog.open(DetailDialogComponent, mdConfig);

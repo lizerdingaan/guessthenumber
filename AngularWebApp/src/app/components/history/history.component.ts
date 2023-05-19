@@ -44,9 +44,9 @@ export class HistoryComponent implements OnInit {
   onClickDeleteHistory() {
     const mdConfig = new MatDialogConfig();
     mdConfig.disableClose = true;
-    mdConfig.width = '300px';
+    mdConfig.width = '400px';
     mdConfig.data = {
-      title: 'Warning',
+      title: 'Warning!',
       content: 'Are you sure you want to delete your history games?'
     }
 
