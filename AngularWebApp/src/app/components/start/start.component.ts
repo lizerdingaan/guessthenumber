@@ -17,6 +17,7 @@ export class StartComponent {
   username = String(this.route_.snapshot.paramMap.get('username'));
   message: string = "";
   isPlaying: boolean = true;
+  title = ""
 
 
   constructor(private backendApiService: BackendApiService,
@@ -42,7 +43,10 @@ export class StartComponent {
         data => {
           this.response_ = data;
           this.message = this.response_.message;
-          console.log(data);
+
+          if (!this.response_.playingGame) {
+            this.isPlaying = false;
+          }
         }
       )
     }
