@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <app-button class="btn"
               text="Start"
               color="#800080"
@@ -22,4 +22,26 @@
               color="#800080"
               (click)="onClickExit()"
               [routerLink]="['home']"></app-button>
+</div>
+-->
+<div class="menu">
+  <img src="assets/images/icon.svg" alt="" class="menu__icon">
+  <div class="menu__buttons">
+
+    <button class="menu__buttons--start"
+            (click)="onClickStartGame()"
+            [routerLink]="['start']">Start</button>
+
+    <button class="menu__buttons--history"
+            (click)="onClickHistory()"
+            [routerLink]="['history']">History</button>
+
+    <button class="menu__buttons--delete"
+            mat-button (click)="onClickDeleteUser()">Delete User</button>
+
+    <button class="menu__buttons--exit"
+            (click)="onClickExit()"
+            [routerLink]="['home']">Exit</button>
+
+  </div>
 </div>

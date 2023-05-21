@@ -1,3 +1,83 @@
-.container {
-  padding: 250px;
+body {
+  background-color: #d5a7cf !important;
+  font-family: "Poppins", sans-serif;
 }
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 35pt 0;
+}
+
+.menu__icon {
+  max-width: 30%;
+}
+
+.menu__buttons {
+  margin-top: 50pt;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__buttons--start {
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #278447;
+  border-width: 0;
+  margin-bottom: 20pt;
+}
+
+  .menu__buttons--start:hover {
+    background-color: #20763e;
+    color: #FFF;
+  }
+
+.menu__buttons--history {
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #645CBB;
+  background-color: #EBC7E6;
+  border-width: 0;
+  margin-bottom: 20pt;
+}
+
+  .menu__buttons--history:hover {
+    background-color: #d5a7cf;
+    color: #FFF;
+  }
+
+.menu__buttons--delete {
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #B94A4A;
+  border-width: 0;
+  margin-bottom: 20pt;
+}
+
+  .menu__buttons--delete:hover {
+    background-color: #ab4141;
+    color: #FFF;
+  }
+
+.menu__buttons--exit {
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #645CBB;
+  border-width: 3pt;
+  border-color: #EBC7E6;
+  margin-bottom: 20pt;
+}
+
+  .menu__buttons--exit:hover {
+    background-color: #645CBB;
+    color: #FFF;
+  }
+/*# sourceMappingURL=menu.css.map */
