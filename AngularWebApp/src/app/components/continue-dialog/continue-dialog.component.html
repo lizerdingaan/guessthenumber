@@ -1,0 +1,14 @@
+<div class="dialog">
+  <h1 class="title" mat-dialog-title>{{userDetails.title}}</h1>
+
+  <div class="content" mat-dialog-content>
+    <p>{{userDetails.content}}</p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button class="btn" mat-button [mat-dialog-close]="true">Yes</button>
+    <button class="btn" mat-button [mat-dialog-close]="false">No</button>
+  </div>
+</div>
+
+

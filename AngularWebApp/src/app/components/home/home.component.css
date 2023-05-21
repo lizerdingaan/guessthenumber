@@ -1,13 +1,85 @@
 
-.item-3 {
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40pt;
+}
+
+.home__welcome {
+  color: #FFF;
+  font-size: 23pt;
+  margin-bottom: 20pt;
+}
+
+.home__icon {
+  max-width: 100%;
+  height: auto;
+}
+
+.home__name {
+  font-size: 54pt;
   text-align: center;
+  line-height: 0.9;
+  letter-spacing: -1.5pt;
+  font-weight: 700;
+  color: #FFF;
+  margin: 40px 0;
 }
 
-.container {
-  padding: 250px;
+.home__login-register {
+  display: flex;
+  justify-content: space-around;
 }
 
+  .home__login-register .login {
+    font-size: 18pt;
+    margin-right: 30px;
+    padding: 17pt 43pt;
+    border-radius: 10pt;
+    color: #645CBB;
+    background-color: #EBC7E6;
+    border-width: 0;
+  }
 
-a {
-  color: #800080;
+    .home__login-register .login:hover {
+      background-color: #d5a7cf;
+    }
+
+  .home__login-register .register {
+    margin-left: 30px;
+    font-size: 18pt;
+    padding: 17pt 43pt;
+    border-radius: 10pt;
+    color: #EBC7E6;
+    background-color: #645CBB;
+    border-style: solid;
+    border-width: 3pt;
+    border-color: #EBC7E6;
+  }
+
+    .home__login-register .register:hover {
+      background-color: #EBC7E6;
+      color: #645CBB;
+    }
+
+.home__help {
+  color: #FFF;
+  margin-top: 30pt;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+  .home__login-register {
+    display: flex;
+    flex-direction: column;
+  }
+
+    .home__login-register .login {
+      margin: 0 0 35px 0;
+    }
+
+    .home__login-register .register {
+      margin: 0;
+    }
 }

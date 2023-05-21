@@ -1,6 +1,6 @@
 
-<div class="container">
-
+<!--<div class="container">-->
+<!--
   <div class="item-1">
     <h1 class="title">{{title}}</h1>
   </div>
@@ -27,6 +27,27 @@
   <div class="item-3">
     <a mat-button (click)="dialogPopUp()" style="cursor:pointer"><u>Need Help?</u></a>
   </div>
+
+</div>-->
+
+<div class="home">
+
+  <p class="home__welcome">Welcome to ...</p>
+  <img src="assets/images/icon.svg" alt="" class="home__icon">
+  <h4 class="home__name">Guess the <br />Number</h4>
+  <div class="home__login-register">
+
+    <button class="login"
+                text="Login"
+                (click)="onClickLogin()"
+                [routerLink]="['login']">
+                Login</button>
+    <button class="register"
+                text="Register"
+                (click)="onClickRegister()"
+                [routerLink]="['register']">Register</button>
+  </div>
+  <a mat-button (click)="dialogPopUp()" style="cursor:pointer" class="home__help">Need Help?</a>
 
 </div>
 

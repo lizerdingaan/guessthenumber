@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <h2 class="heading">Enter new username</h2>
 
   <form #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
@@ -19,10 +19,33 @@
                 type="button"
                 color="#800080"></app-button>
 
-    <a *ngIf="username.valid" class="heading" href="login" color="#800080">Login</a>
+    <a *ngIf="username.valid" class="heading" href="register" color="#800080">register</a>
 
   </form>
-  
+
+</div>-->
+
+<div class="container">
+
+  <div class="register">
+    <img src="assets/images/icon.svg" alt="" class="register__icon">
+    <p class="register__text">User Registration</p>
+    <form class="register__form" #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
+      <label for="username">Username</label><br>
+      <input type="text"
+             placeholder="Enter new username..."
+             name="username"
+             required
+             #username="ngModel"
+             ngModel />
+      <h4 class="subheading" *ngIf="existingUser" color="#800000">This username already exists, please enter more uniqe name.</h4>
+      <button class="register__register-btn">
+        register
+      </button>
+    </form>
+  </div>
+
 </div>
+
 
 

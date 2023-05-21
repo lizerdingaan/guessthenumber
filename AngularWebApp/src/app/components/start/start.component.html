@@ -17,17 +17,17 @@
 
     <h3 *ngIf="isPlaying" class="heading">{{message}}</h3>
 
-    <app-button *ngIf="guessNum.value!=''"
+    <app-button [isButtonDisabled]="!userForm.form.valid"
                 class="btn"
                 text="Submit"
                 type="button"
                 color="#800080"></app-button>
 
     <app-button class="btn"
-                text="Quit"
+                text="Continue"
                 type="button"
                 color="#800080"
-                (click)="onClickQuit()"></app-button>
+                mat-button (click)="onClickContinue()"></app-button>
 
 
 
@@ -42,10 +42,13 @@
 
   <div *ngIf="!isPlaying">
     <app-button class="btn"
-                text="Quit"
+                text="Continue"
                 type="button"
                 color="#800080"
-                (click)="onClickQuit()"></app-button>
+                (click)="onClickContinue()"></app-button>
   </div>
 
 </div>
+
+
+<!--*ngIf="guessNum.value!=''"-->

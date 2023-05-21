@@ -9,6 +9,6 @@ import { SetDisabledStateOption } from '@angular/forms';
 export class ButtonComponent {
   @Input() text!: string;
   @Input() color!: string;
-
+  @Input() isButtonDisabled: boolean = false;
 
 }

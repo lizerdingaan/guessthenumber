@@ -17,6 +17,7 @@ export class LoginComponent {
   constructor(private backendApiService: BackendApiService,
     private route: Router) { }
 
+
   getUserExistance(username: string) {
     this.backendApiService.getExistingUser(username).subscribe(
       data => {
@@ -25,7 +26,6 @@ export class LoginComponent {
         if (data.usernameExists) {
           this.route.navigateByUrl(`/menu/${username}`);
         } 
-        console.log(data);
       }
     )
   }

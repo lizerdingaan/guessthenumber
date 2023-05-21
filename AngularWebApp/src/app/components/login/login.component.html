@@ -1,26 +1,23 @@
+
   <div class="container">
 
-  <h2 class="heading">Enter your username</h2>
-  <form #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
-    <input name="username"
-           required
-           #username="ngModel"
-           class="input"
-           type="text"
-           placeholder="type a name"
-           ngModel/>
+    <div class="register">
+      <img src="assets/images/icon.svg" alt="" class="login__icon">
+      <p class="login__text">User Login</p>
+      <form class="login__form" #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
+        <label for="username">Username</label><br>
+        <input type="text"
+               placeholder="Enter your username..."
+               name="username"
+               required
+               #username="ngModel"
+               ngModel />
+        <!--<h4 class="subheading" *ngIf="!existingUser" color="#800000">This username does not exist, please register.</h4>-->
+        <button class="login__login-btn">
+          Login
+        </button>
+      </form>
+    </div>
 
-    <h4 class="subheading" *ngIf="!existingUser" color="#800000">This username does not exist, please register.</h4>
-
-    <app-button *ngIf="username.valid"
-                class="btn"
-                text="Login"
-                type="button"
-                color="#800080"></app-button>
-
-    <a *ngIf="username.valid" class="heading" href="register" color="#800080">Register</a>
-
-  </form>
-  
-</div>
+  </div>
 

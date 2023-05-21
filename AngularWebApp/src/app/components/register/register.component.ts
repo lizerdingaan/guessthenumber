@@ -16,6 +16,7 @@ export class RegisterComponent {
   constructor(private backendApiService: BackendApiService,
     private route: Router) { }
 
+
   getRegisteredUser(username: string) {
     this.backendApiService.registerNewUser(username).subscribe(
       data => {
