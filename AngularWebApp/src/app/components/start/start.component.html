@@ -1,4 +1,4 @@
-<div class="block">
+<!--<div class="block">
 
   <h2 *ngIf="isPlaying" class="heading">Guess a number between 1 and 20. You've got 5 tries.</h2>
 
@@ -49,6 +49,27 @@
   </div>
 
 </div>
-
+-->
 
 <!--*ngIf="guessNum.value!=''"-->
+
+<div class="guess">
+  <h4 class="guess__instruction">Guess a number between 1 and 20</h4>
+  <p class="guess__attempt">{{message}}</p>
+  <form class="guess__form"
+        *ngIf="isPlaying"
+        #userForm="ngForm"
+        (ngSubmit)="onClickSubmitInput(username, beginResponse.id, guess.value); guessNum.value=''">
+
+    <input type="number"
+           placeholder="Enter a number"
+           name="guess"
+           #guess="ngModel"
+           min="1"
+           max="20"
+           ngModel
+           required
+           #guessNum><br />
+    <button class="guess__form--submit-btn">Submit</button>
+  </form>
+</div>
