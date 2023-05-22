@@ -1,65 +1,14 @@
-<!--<div class="block">
-
-  <h2 *ngIf="isPlaying" class="heading">Guess a number between 1 and 20. You've got 5 tries.</h2>
-
-  <form *ngIf="isPlaying" #userForm="ngForm" (ngSubmit)="onClickSubmitInput(username, beginResponse.id, guess.value); guessNum.value=''">
-
-    <input name="guess"
-           #guess="ngModel"
-           class="input"
-           type="number"
-           min="1"
-           max="20"
-           placeholder="enter a number"
-           ngModel
-           required
-           #guessNum />
-
-    <h3 *ngIf="isPlaying" class="heading">{{message}}</h3>
-
-    <app-button [isButtonDisabled]="!userForm.form.valid"
-                class="btn"
-                text="Submit"
-                type="button"
-                color="#800080"></app-button>
-
-    <app-button class="btn"
-                text="Continue"
-                type="button"
-                color="#800080"
-                mat-button (click)="onClickContinue()"></app-button>
-
-
-
-    <app-button *ngIf="!beginResponse.playingGame"
-                class="btn"
-                text="Play Again"
-                type="button"
-                color="#800080"
-                (click)="onClickPlayAgain()"></app-button>
-
-  </form>
-
-  <div *ngIf="!isPlaying">
-    <app-button class="btn"
-                text="Continue"
-                type="button"
-                color="#800080"
-                (click)="onClickContinue()"></app-button>
-  </div>
-
-</div>
--->
-
-<!--*ngIf="guessNum.value!=''"-->
 
 <div class="guess">
+
   <h4 class="guess__instruction">Guess a number between 1 and 20</h4>
   <p class="guess__attempt">{{message}}</p>
+
   <form class="guess__form"
+
         *ngIf="isPlaying"
         #userForm="ngForm"
-        (ngSubmit)="onClickSubmitInput(username, beginResponse.id, guess.value); guessNum.value=''">
+        (ngSubmit)="onClickSubmitInput(username, beginResponse.id, guess.value, userForm)">
 
     <input type="number"
            placeholder="Enter a number"
@@ -69,7 +18,13 @@
            max="20"
            ngModel
            required
-           #guessNum><br />
-    <button class="guess__form--submit-btn">Submit</button>
+
+           ><br />
+
+    <button class="guess__form--submit-btn" type="submit"
+            >Submit</button>
+    <button class="guess__form--quit-btn"
+            (click)="onClickQuit()">Quit</button>
   </form>
+
 </div>

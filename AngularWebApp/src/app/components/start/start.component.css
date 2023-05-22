@@ -13,7 +13,7 @@ body {
 
 .guess__instruction {
   font-weight: 500;
-  font-size: 30pt;
+  font-size: 23pt;
   color: #FFF;
   margin-bottom: 40pt;
 }
@@ -56,6 +56,24 @@ body {
     background-color: #20763e;
   }
 
+.guess__form--quit-btn {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 30pt;
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #645CBB;
+  border-width: 3pt;
+  border-color: #EBC7E6;
+}
+
+  .guess__form--quit-btn:hover {
+    background-color: #645CBB;
+    color: #FFF;
+  }
+
 @media screen and (max-width: 480px) {
   .guess {
     padding: 0 40pt;
@@ -68,4 +86,4 @@ body {
     width: 97%;
   }
 }
-/*# sourceMappingURL=guess.css.map */
+

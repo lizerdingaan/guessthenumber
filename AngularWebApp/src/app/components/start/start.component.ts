@@ -3,9 +3,7 @@ import { Responses } from '../../models/responses.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendApiService } from '../../services/backend-api.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DetailDialogComponent } from '../../components/detail-dialog/detail-dialog.component';
-import { FormGroup, NgForm } from '@angular/forms';
-import { ContinueDialogComponent } from '../continue-dialog/continue-dialog.component';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -38,9 +36,9 @@ export class StartComponent {
     )
   }
 
-  onClickSubmitInput(username: string, id: number, guess: number) {
+  onClickSubmitInput(username: string, id: number, guess: number, userForm:NgForm) {
 
-    if (guess < 1 || guess > 20) {
+    if (guess < 1 || guess > 20 || guess == null) {
       this.message = "Only enter numbers between 1 and 20."
     }
     else {
@@ -55,38 +53,22 @@ export class StartComponent {
           }
         }
       )
+      
     }
+  
+    userForm.reset();
   }
 
 
-  onClickContinue() {
-    const mdConfig = new MatDialogConfig();
-    mdConfig.disableClose = true;
-    mdConfig.width = '400px';
-    mdConfig.data = {
-      title: 'Note',
-      content: 'Do you want to quit to menu?'
-    }
+  onClickQuit() {
 
-    const dialogRef = this.dialog.open(ContinueDialogComponent, mdConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.route.navigateByUrl(`/menu/${this.username}`)
-      }
-    })
-
+    this.route.navigateByUrl(`/menu/${this.username}`)
 
   }
+
 
   onClickPlayAgain() {
     this.route.navigateByUrl(`/start/${this.username}`);
   }
 
-/*  disableButton() {
-    this.isButtonDisabled = true;
-  }*/
-
-/*  enableButton() {
-    this.isButtonDisabled = false;
-  }*/
 }
