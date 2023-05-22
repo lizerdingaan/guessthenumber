@@ -1,32 +1,26 @@
-<div class="block">
-  <div class="container">
-    <h2 class="heading">{{responses.message}}</h2>
 
-    <table *ngIf="!responses.historyCleared && responses.games != null" class="table" border="1">
-      <tr>
-        <td>Random Number</td>
-        <td>Number of Tries</td>
-        <td>Game Status</td>
-      </tr>
-      <tr *ngFor="let item of responses.games">
-        <td>{{item.randomNumber}}</td>
-        <td>{{item.numberOfTries}}</td>
-        <td>{{item.gameStatus}}</td>
+<div class="history">
+  <p class="history__message">tshego's previous games</p>
 
-      </tr>
-    </table>
+  <table *ngIf="!responses.historyCleared && responses.games != null" class="table" border="1">
+    <tr>
+      <td>Random Number</td>
+      <td>Number of Tries</td>
+      <td>Game Status</td>
+    </tr>
+    <tr *ngFor="let item of responses.games">
+      <td>{{item.randomNumber}}</td>
+      <td>{{item.numberOfTries}}</td>
+      <td>{{item.gameStatus}}</td>
 
+    </tr>
+  </table>
+
+  <div class="history__button">
+    <button class="history__button--menu"
+            (click)="onClickBacktoMenu()"
+            [routerLink]="['menu']">Menu</button>
+    <button class="history__button--history"
+            mat-button (click)="onClickDeleteHistory()">Delete History</button>
   </div>
-
-  <app-button class="btn"
-              text="Menu"
-              color="#800080"
-              (click)="onClickBacktoMenu()"
-              [routerLink]="['menu']"></app-button>
-
-  <app-button *ngIf="!responses.historyCleared && responses.games != null" class="btn"
-              text="Delete History"
-              color="#800080"
-              mat-button (click)="onClickDeleteHistory()"></app-button>
-
 </div>

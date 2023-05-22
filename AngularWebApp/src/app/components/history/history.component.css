@@ -2,3 +2,45 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.history__message {
+  font-weight: 500;
+  font-size: 25pt;
+  color: #FFF;
+  margin-bottom: 45pt;
+}
+
+.history__button--menu {
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #278447;
+  border-width: 0;
+  margin-top: 20pt;
+}
+
+  .history__button--menu:hover {
+    background-color: #20763e;
+  }
+
+.history__button--history {
+  font-size: 18pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #B94A4A;
+  border-width: 0;
+}
+
+  .history__button--history:hover {
+    background-color: #ab4141;
+  }
