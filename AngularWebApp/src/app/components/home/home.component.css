@@ -70,6 +70,7 @@
 }
 
 @media screen and (max-width: 480px) {
+  /* For mobile phones: */
   .home__login-register {
     display: flex;
     flex-direction: column;

@@ -15,8 +15,13 @@
         <h4 class="subheading" *ngIf="!existingUser" color="#800000">This username does not exist, please register.</h4>
         <button class="login__login-btn">
           Login
-        </button>
+        </button><br />
+
       </form>
+      <button class="login__back-btn"
+              (click)="onClickBack()">
+        Back
+      </button>
     </div>
 
   </div>

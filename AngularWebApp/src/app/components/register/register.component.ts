@@ -34,4 +34,10 @@ export class RegisterComponent {
   onSubmit(username: string) {
     this.getRegisteredUser(username);
   }
+
+  onClickBack() {
+    this.route.navigateByUrl('/home');
+  }
+
+
 }

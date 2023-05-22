@@ -52,4 +52,8 @@ export class LoginComponent {
 
   }
 
+  onClickBack() {
+    this.route.navigateByUrl('/home');
+  }
+
 }

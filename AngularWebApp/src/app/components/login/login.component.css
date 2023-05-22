@@ -49,7 +49,24 @@
     background-color: #d5a7cf;
   }
 
+.login__back-btn {
+  font-size: 18pt;
+  margin-right: 30px;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #FFF;
+  background-color: #645CBB;
+  border-width: 3pt;
+  border-color: #EBC7E6;
+  margin-top: 20pt;
+}
+
+  .login__back-btn:hover {
+    background-color: #d5a7cf;
+  }
+
 @media screen and (max-width: 480px) {
+  /* For mobile phones: */
   .login {
     padding: 0 50pt;
     display: flex;
