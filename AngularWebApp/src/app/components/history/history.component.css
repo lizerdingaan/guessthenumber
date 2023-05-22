@@ -50,12 +50,7 @@
 
 @media screen and (max-width: 480px) {
   /* For mobile phones: */
-/*  .guess {
-    padding: 0 40pt;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }*/
+
   .history__button--menu {
     margin-bottom: 40px;
     margin-right: 20pt;

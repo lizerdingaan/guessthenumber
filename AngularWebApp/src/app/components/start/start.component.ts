@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Responses } from '../../models/responses.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendApiService } from '../../services/backend-api.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 
 
