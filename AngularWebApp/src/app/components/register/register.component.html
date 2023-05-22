@@ -1,29 +1,3 @@
-<!--<div class="container">
-  <h2 class="heading">Enter new username</h2>
-
-  <form #userForm="ngForm" (ngSubmit)="onSubmit(username.value)">
-
-    <input name="username"
-           required
-           #username="ngModel"
-           class="input"
-           type="text"
-           placeholder="type a name"
-           ngModel />
-
-    <h4 class="subheading" *ngIf="existingUser" color="#800000">This username already exists, please enter more uniqe name.</h4>
-
-    <app-button *ngIf="username.valid"
-                class="btn"
-                text="Register"
-                type="button"
-                color="#800080"></app-button>
-
-    <a *ngIf="username.valid" class="heading" href="register" color="#800080">register</a>
-
-  </form>
-
-</div>-->
 
 <div class="container">
 
@@ -40,7 +14,7 @@
              ngModel />
       <h4 class="subheading" *ngIf="existingUser" color="#800000">This username already exists, please enter more uniqe name.</h4>
       <button class="register__register-btn">
-        register
+        Register
       </button>
     </form>
   </div>

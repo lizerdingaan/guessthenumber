@@ -3,6 +3,7 @@ import { AddUser } from '../../models/adduser.model';
 import { BackendApiService } from '../../services/backend-api.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
