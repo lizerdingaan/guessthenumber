@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { NeedHelpDialogComponent } from '../need-help-dialog/need-help-dialog.component';
 import { AddUser } from '../../models/adduser.model';
 import { BackendApiService } from '../../services/backend-api.service';
 import { Router } from '@angular/router';
+import { ContinueDialogComponent } from '../continue-dialog/continue-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +27,7 @@ export class LoginComponent {
       title: 'Warning!',
       content: "Please enter a username."
     }
-    const dialogRef = this.dialog.open(NeedHelpDialogComponent, mdConfig);
+    const dialogRef = this.dialog.open(ContinueDialogComponent, mdConfig);
   }
 
   getUserExistance(username: string) {

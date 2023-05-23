@@ -27,13 +27,6 @@ export class HomeComponent {
     const mdConfig = new MatDialogConfig();
     mdConfig.disableClose = true;
     mdConfig.width = '400px';
-    mdConfig.data = {
-      title: 'How to play',
-      content: "1. Login as an existing user." +
-      " 2. If you are new, register with a unique username." +
-      " 3.Press start to begin. " +
-      " 4. You have 5 tries to guess a number between 1 and 20."
-    }
 
     const dialogRef = this.dialog.open(NeedHelpDialogComponent, mdConfig);
 

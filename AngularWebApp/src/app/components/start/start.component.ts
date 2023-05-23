@@ -16,11 +16,8 @@ export class StartComponent {
   beginResponse = new Responses();
   response_ = new Responses();
   username = String(this.route_.snapshot.paramMap.get('username'));
-  message: string = "";
+  message: string = "You've got 5 chances.";
   isPlaying: boolean = true;
-  title = ""
-  isButtonDisabled: boolean = false;
-  textBoxValue: string = '';
 
 
   constructor(private backendApiService: BackendApiService,
@@ -47,10 +44,6 @@ export class StartComponent {
         data => {
           this.response_ = data;
           this.message = this.response_.message;
-
-          if (!this.response_.playingGame) {
-            this.isPlaying = false;
-          }
         }
       )
       

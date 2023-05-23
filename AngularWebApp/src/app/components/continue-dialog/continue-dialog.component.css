@@ -1,15 +1,31 @@
-.title {
-  color: #800000;
+.dialog__title {
+  color: #645CBB;
 }
 
-.content {
-  color: #800000;
+.dialog__content {
+  color: #645CBB;
+  font-weight: 500;
 }
 
-.btn {
-  background-color: #800080;
+.dialog__button {
+  padding-left: 220pt;
 }
+
+.dialog__button--close {
+  font-size: 12pt;
+  padding: 15px 10px;
+  margin-right: 20pt;
+  color: #645CBB;
+  background-color: #EBC7E6;
+  border-width: 0;
+  border-radius: 3pt;
+}
+
+  .dialog__button--close:hover {
+    background-color: #d5a7cf;
+  }
 
 .dialog {
   background-color: #fff8ff;
+  font-weight: 500;
 }

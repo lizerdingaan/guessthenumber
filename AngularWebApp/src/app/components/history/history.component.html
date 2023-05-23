@@ -21,6 +21,7 @@
             (click)="onClickBacktoMenu()"
             [routerLink]="['menu']">Menu</button>
     <button class="history__button--history"
+            *ngIf="responses.games != null"
             mat-button (click)="onClickDeleteHistory()">Delete History</button>
   </div>
 </div>

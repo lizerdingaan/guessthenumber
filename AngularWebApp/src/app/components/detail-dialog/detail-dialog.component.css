@@ -1,15 +1,45 @@
-.title {
-  color: #800000;
+.dialog__title {
+  color: #645CBB;
 }
 
-.content {
-  color: #800000;
+.dialog__content {
+  color: #645CBB;
+  font-weight: 500;
 }
 
-.btn {
-  background-color: #800080;
+.dialog__button {
+  padding-left: 170pt;
+  
 }
+
+.dialog__button--cancel {
+  font-size: 12pt;
+  padding: 15px 10px;
+  margin-right: 20pt;
+  color: #645CBB;
+  background-color: #EBC7E6;
+  border-width: 0;
+  border-radius: 3pt;
+}
+
+.dialog__button--cancel:hover {
+  background-color: #d5a7cf;
+}
+
+.dialog__button--ok {
+  font-size: 12pt;
+  padding: 12px 10px;
+  color: #645CBB;
+  border-radius: 3pt;
+  background-color: #FFFFFF;
+  border-width: 3pt;
+  border-color: #EBC7E6;
+}
+
+  .dialog__button--ok:hover {
+    background-color: #EBC7E6;
+  }
 
 .dialog {
-    background-color: #fff8ff;
+  background-color: #FFFFFF;
 }
