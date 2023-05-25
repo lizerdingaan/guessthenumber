@@ -3,6 +3,62 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.guess__toolbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #5248bb;
+
+}
+
+.guess__toolbar--menu-icon {
+  color: #FFFFFF;
+  margin-right: 15pt;
+
+}
+
+.guess__toolbar--menu-icon:hover {
+  color: #c333b2;
+}
+
+.guess__toolbar--home-icon {
+  color: #FFFFFF;
+  margin-right: 20pt;
+}
+
+  .guess__toolbar--home-icon:hover {
+    color: #c333b2;
+  }
+
+  .guess__toolbar--refresh-icon {
+    color: #FFFFFF;
+    margin-left: 10pt;
+    margin-right: 20pt;
+    margin-left: 1000pt;
+  }
+
+  .guess__toolbar--refresh-icon:hover {
+    color: #c333b2;
+  }
+
+.guess__toolbar--close-icon {
+  color: #FFFFFF;
+
+}
+
+  .guess__toolbar--close-icon:hover {
+    color: #c333b2;
+  }
+
+.guess__toolbar--menu-heading {
+  font-weight: 500;
+  font-size: 26pt;
+  text-align: center;
+  margin-top: 8pt;
+  color: #FFFFFF;
+}
+
 .guess {
   display: flex;
   flex-direction: column;
@@ -74,6 +130,21 @@ body {
     color: #FFF;
   }
 
+.guess__form--replay-btn {
+  font-size: 18pt;
+  margin-left: 28px;
+  margin-top: 30pt;
+  padding: 17pt 43pt;
+  border-radius: 10pt;
+  color: #645CBB;
+  background-color: #EBC7E6;
+  border-width: 0;
+}
+
+  .guess__form--replay-btn:hover {
+    background-color: #d5a7cf;
+  }
+
 @media screen and (max-width: 480px) {
   /* For mobile phones: */
   .guess {
@@ -86,5 +157,19 @@ body {
   .guess__form input[type=number] {
     width: 97%;
   }
+
+  .guess__toolbar {
+
+  }
+
+  .guess__toolbar--menu-heading {
+      font-size: 19pt;
+  }
+
+  .guess__toolbar--menu-icon {
+    color: #FFFFFF;
+    margin-right: 100pt;
+  }
+
 }
 

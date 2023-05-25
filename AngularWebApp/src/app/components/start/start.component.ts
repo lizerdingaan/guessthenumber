@@ -44,9 +44,11 @@ export class StartComponent {
         data => {
           this.response_ = data;
           this.message = this.response_.message;
+          if (!this.response_.playingGame) {
+            this.isPlaying = false;
+          }
         }
       )
-      
     }
   
     userForm.reset();
@@ -59,9 +61,15 @@ export class StartComponent {
 
   }
 
+  onClickHome() {
+
+    this.route.navigateByUrl(`/home`)
+
+  }
+
 
   onClickPlayAgain() {
-    this.route.navigateByUrl(`/start/${this.username}`);
+    window.location.reload();
   }
 
 }

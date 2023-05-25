@@ -4,6 +4,9 @@ import { routing } from './app-routing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +38,8 @@ import { ContinueDialogComponent } from './components/continue-dialog/continue-d
     NavigationbarComponent,
     DetailDialogComponent,
     NeedHelpDialogComponent,
-    ContinueDialogComponent
+    ContinueDialogComponent,
+
 
   ],
   imports: [
@@ -46,7 +50,10 @@ import { ContinueDialogComponent } from './components/continue-dialog/continue-d
     FormsModule,
     FontAwesomeModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

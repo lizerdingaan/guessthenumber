@@ -1,3 +1,32 @@
+<mat-toolbar class="guess__toolbar">
+
+  <mat-icon class="guess__toolbar--menu-icon"
+            fontIcon="menu"
+            style="cursor:pointer"
+            matTooltip="Menu"
+            (click)="onClickQuit()"></mat-icon>
+
+  <mat-icon class="guess__toolbar--home-icon"
+            fontIcon="home"
+            style="cursor:pointer"
+            matTooltip="Home"
+            (click)="onClickHome()"></mat-icon>
+
+  <h4 class="guess__toolbar--menu-heading">Guess The Number</h4>
+
+  <mat-icon class="guess__toolbar--refresh-icon"
+            fontIcon="refresh"
+            style="cursor:pointer"
+            matTooltip="Restart"
+            (click)="onClickPlayAgain()"></mat-icon>
+
+  <mat-icon class="guess__toolbar--close-icon"
+            fontIcon="close"
+            style="cursor:pointer"
+            matTooltip="Close"
+            (click)="onClickHome()"></mat-icon>
+
+</mat-toolbar>
 
 <div class="guess">
 
@@ -24,12 +53,21 @@
       Submit
     </button>
     <button class="guess__form--quit-btn"
-            (click)="onClickQuit()">Quit
+            (click)="onClickQuit()">
+      Quit
     </button>
   </form>
 
+  <button class="guess__form--replay-btn"
+          *ngIf="!isPlaying"
+          (click)="onClickPlayAgain()">
+    Play Again
+  </button>
+
   <button class="guess__form--quit-btn"
           *ngIf="!isPlaying"
-          (click)="onClickQuit()">Quit
+          (click)="onClickQuit()">
+    Quit
   </button>
+
 </div>
