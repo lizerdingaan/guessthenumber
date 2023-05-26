@@ -159,7 +159,7 @@ body {
   }
 
   .guess__toolbar {
-
+      display: flex;
   }
 
   .guess__toolbar--menu-heading {
@@ -168,7 +168,7 @@ body {
 
   .guess__toolbar--menu-icon {
     color: #FFFFFF;
-    margin-right: 100pt;
+
   }
 
 }
